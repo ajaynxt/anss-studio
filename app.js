@@ -1,4 +1,4 @@
-// Anss Studio - Luxury Interactive Experience Engine
+// Anss Studio - Bright & Luxury Studio Experience Engine
 
 // ================= 1. PROJECT DATA CATALOG =================
 const projectsData = [
@@ -7,7 +7,7 @@ const projectsData = [
     title: 'Edius 11 Royal Wedding Master Project',
     category: 'edius',
     badge: 'Edius Pro',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     image: './assets/edius-project.jpg',
     resolution: '4K / 60FPS',
     audio: 'Pre-synced Bollywood & Sufi',
@@ -21,7 +21,7 @@ const projectsData = [
     title: 'Premiere Pro 4K Cinematic Teaser Pack',
     category: 'premiere',
     badge: 'Premiere Pro',
-    badgeColor: 'bg-purple-500/20 text-purple-400 border-purple-500/40',
+    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
     image: './assets/premiere-project.jpg',
     resolution: '4K UHD HDR',
     audio: 'Beat Marker Guided',
@@ -35,7 +35,7 @@ const projectsData = [
     title: 'After Effects 3D Royal Palace Wedding Invite',
     category: 'after-effects',
     badge: 'After Effects',
-    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/40',
+    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
     image: './assets/after-effects-project.jpg',
     resolution: '3840x2160',
     audio: 'Royal Shehnai & Strings',
@@ -49,7 +49,7 @@ const projectsData = [
     title: 'Final Cut Pro (FCPX) Wedding Storyteller Suite',
     category: 'fcp',
     badge: 'Final Cut Pro',
-    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/40',
+    badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
     image: './assets/fcp-project.jpg',
     resolution: 'Apple ProRes 422',
     audio: 'Multi-Track Audio Sync',
@@ -63,7 +63,7 @@ const projectsData = [
     title: 'LED Stage Center - Royal Grand Varmala (4K)',
     category: 'led',
     badge: 'LED Center',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40',
+    badgeColor: 'bg-cyan-50 text-cyan-800 border-cyan-200',
     image: './assets/led-stage-1.jpg',
     resolution: '3840x2160 (60FPS)',
     audio: 'Visual Loop',
@@ -77,7 +77,7 @@ const projectsData = [
     title: 'LED Stage Wings (Left & Right Synchronized Pair)',
     category: 'led',
     badge: 'LED Wings',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40',
+    badgeColor: 'bg-cyan-50 text-cyan-800 border-cyan-200',
     image: './assets/led-stage-2.jpg',
     resolution: '1080x1920 (Pair)',
     audio: 'Visual Loop',
@@ -91,7 +91,7 @@ const projectsData = [
     title: 'LED Stage Base Strip & Floor Riser Visuals',
     category: 'led',
     badge: 'LED Base',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+    badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
     image: './assets/led-stage-4.jpg',
     resolution: '3840x480 Ultra-Wide',
     audio: 'Visual Loop',
@@ -105,7 +105,7 @@ const projectsData = [
     title: 'Complete 4-Piece Grand Stage LED Visual Bundle',
     category: 'led',
     badge: '4-Screen Bundle',
-    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/40 font-bold',
+    badgeColor: 'bg-rose-50 text-rose-700 border-rose-300 font-bold',
     image: './assets/led-stage-3.jpg',
     resolution: 'Full 4-Screen Sync',
     audio: 'Timecode Sync Ready',
@@ -119,7 +119,7 @@ const projectsData = [
     title: 'Edius Haldi & Sangeet Beat-Sync Song Mixing',
     category: 'edius',
     badge: 'Edius Pro',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     image: './assets/edius-project.jpg',
     resolution: '1080p / 4K Ready',
     audio: '20+ Hit Songs Pre-Cut',
@@ -133,7 +133,7 @@ const projectsData = [
     title: 'After Effects 9:16 Instagram Reels Wedding Pack',
     category: 'after-effects',
     badge: 'After Effects',
-    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/40',
+    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
     image: './assets/after-effects-project.jpg',
     resolution: '1080x1920 Vertical',
     audio: 'Trending Audio Cut',
@@ -149,12 +149,9 @@ let currentFilter = 'all';
 let currentSearch = '';
 let cart = [];
 let currentModalItemTitle = '';
-let isAudioActive = true;
 
 // ================= 2. INITIALIZATION =================
 document.addEventListener('DOMContentLoaded', () => {
-  initParticlesCanvas();
-  initMouseSpotlight();
   initBeforeAfterSlider();
   initLiveSalesToasts();
   renderProjects();
@@ -164,66 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ================= 3. FLOATING STARDUST PARTICLES CANVAS =================
-function initParticlesCanvas() {
-  const canvas = document.getElementById('particlesCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  const particles = [];
-  const particleCount = 45;
-
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: Math.random() * 2 + 0.8,
-      speedX: (Math.random() - 0.5) * 0.4,
-      speedY: -Math.random() * 0.5 - 0.2,
-      opacity: Math.random() * 0.6 + 0.2,
-      color: Math.random() > 0.4 ? '245, 158, 11' : '139, 92, 246'
-    });
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    particles.forEach(p => {
-      p.x += p.speedX;
-      p.y += p.speedY;
-
-      if (p.y < 0) p.y = height;
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = `rgba(${p.color}, 0.8)`;
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
-
-// ================= 4. MOUSE SPOTLIGHT ENGINE =================
-function initMouseSpotlight() {
-  window.addEventListener('mousemove', (e) => {
-    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-  });
-}
-
-// ================= 5. BEFORE / AFTER COLOR GRADE SLIDER =================
+// ================= 3. BEFORE / AFTER COLOR GRADE SLIDER =================
 function initBeforeAfterSlider() {
   const wrapper = document.getElementById('sliderWrapper');
   const beforeContainer = document.getElementById('beforeImageContainer');
@@ -273,7 +211,7 @@ function initBeforeAfterSlider() {
   });
 }
 
-// ================= 6. LIVE SALES NOTIFICATION TOASTS =================
+// ================= 4. LIVE SALES NOTIFICATION TOASTS =================
 function initLiveSalesToasts() {
   const toast = document.getElementById('liveSalesToast');
   const title = document.getElementById('toastTitle');
@@ -312,7 +250,7 @@ function hideToast() {
   if (toast) toast.classList.add('-translate-x-full');
 }
 
-// ================= 7. RENDER PROJECT CARDS =================
+// ================= 5. RENDER PROJECT CARDS (BRIGHT DESIGN) =================
 function renderProjects() {
   const container = document.getElementById('projectsGrid');
   if (!container) return;
@@ -328,10 +266,10 @@ function renderProjects() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full text-center py-16">
-        <i data-lucide="search-x" class="w-12 h-12 text-gray-600 mx-auto mb-3"></i>
-        <h4 class="text-lg font-bold text-gray-300">No project templates found</h4>
-        <p class="text-xs text-gray-500 mt-1">Try another keyword or category filter</p>
+      <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-slate-200">
+        <i data-lucide="search-x" class="w-12 h-12 text-slate-400 mx-auto mb-3"></i>
+        <h4 class="text-lg font-bold text-slate-800">No project templates found</h4>
+        <p class="text-xs text-slate-500 mt-1">Try another keyword or category filter</p>
       </div>
     `;
     if (window.lucide) lucide.createIcons();
@@ -339,30 +277,30 @@ function renderProjects() {
   }
 
   container.innerHTML = filtered.map(item => `
-    <div class="glass-card rounded-2xl overflow-hidden border border-gray-800/80 hover:border-amber-500/50 transition-all duration-300 flex flex-col group">
+    <div class="white-card rounded-2xl overflow-hidden flex flex-col group">
       
-      <!-- Card Image Thumbnail with Hover Play Button -->
-      <div class="relative aspect-video overflow-hidden bg-black/60 cursor-pointer" onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')">
-        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+      <!-- Card Image Thumbnail with Play Overlay -->
+      <div class="relative aspect-video overflow-hidden bg-slate-900 cursor-pointer" onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')">
+        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         
         <!-- Software Pill Badge -->
         <div class="absolute top-3 left-3">
-          <span class="text-[11px] font-bold px-2.5 py-1 rounded-full border backdrop-blur-md ${item.badgeColor}">
+          <span class="text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-sm ${item.badgeColor}">
             ${item.badge}
           </span>
         </div>
 
         <!-- Resolution Tag -->
         <div class="absolute top-3 right-3">
-          <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-black/80 text-gray-300 border border-white/10">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-black/75 text-white border border-white/20">
             ${item.resolution}
           </span>
         </div>
 
-        <!-- Hover Overlay with Play Button -->
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <div class="w-14 h-14 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-[0_0_20px_#F59E0B] transform scale-90 group-hover:scale-100 transition duration-300">
-            <i data-lucide="play" class="w-6 h-6 fill-black ml-0.5"></i>
+        <!-- Hover Play Button Overlay -->
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition duration-300">
+            <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
           </div>
         </div>
       </div>
@@ -370,33 +308,33 @@ function renderProjects() {
       <!-- Card Body Content -->
       <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
         <div>
-          <h3 class="font-bold text-white text-base group-hover:text-amber-400 transition leading-snug">
+          <h3 class="font-bold text-slate-900 text-base group-hover:text-rose-600 transition leading-snug">
             ${item.title}
           </h3>
-          <p class="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed">
+          <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
             ${item.description}
           </p>
 
-          <div class="flex items-center gap-2 mt-3 text-[11px] text-gray-400">
-            <i data-lucide="music" class="w-3.5 h-3.5 text-amber-400"></i>
+          <div class="flex items-center gap-2 mt-3 text-[11px] text-slate-500 font-medium">
+            <i data-lucide="music" class="w-3.5 h-3.5 text-amber-600"></i>
             <span>${item.audio}</span>
           </div>
         </div>
 
         <!-- Pricing & Action Buttons -->
-        <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between gap-2">
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
           <div>
-            <div class="text-lg font-black text-amber-400">₹${item.price.toLocaleString('en-IN')}</div>
-            <div class="text-[10px] text-gray-500 line-through">₹${item.originalPrice.toLocaleString('en-IN')}</div>
+            <div class="text-lg font-black text-rose-600">₹${item.price.toLocaleString('en-IN')}</div>
+            <div class="text-[11px] text-slate-400 line-through">₹${item.originalPrice.toLocaleString('en-IN')}</div>
           </div>
 
           <div class="flex items-center gap-2">
-            <button onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-semibold transition border border-white/10 flex items-center gap-1.5" title="Watch Demo">
-              <i data-lucide="play" class="w-3.5 h-3.5"></i>
+            <button onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition flex items-center gap-1.5" title="Watch Demo">
+              <i data-lucide="play" class="w-3.5 h-3.5 fill-slate-800"></i>
               <span class="hidden sm:inline">Demo</span>
             </button>
             
-            <button onclick="addToCart('${item.id}')" class="gold-btn text-black font-extrabold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-md">
+            <button onclick="addToCart('${item.id}')" class="ruby-btn-gradient text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-sm">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
               <span>Add to Cart</span>
             </button>
@@ -413,75 +351,71 @@ function renderProjects() {
   }
 }
 
-// ================= 8. CATEGORY FILTER =================
+// ================= 6. CATEGORY FILTER =================
 function filterCategory(category) {
   currentFilter = category;
   
   document.querySelectorAll('.cat-pill').forEach(pill => {
     if (pill.getAttribute('data-cat') === category) {
-      pill.classList.remove('bg-[#0C0F1A]', 'text-gray-300', 'border');
-      pill.classList.add('bg-amber-500', 'text-black', 'shadow-lg');
+      pill.classList.remove('bg-white', 'text-slate-700', 'border');
+      pill.classList.add('bg-rose-600', 'text-white', 'shadow-md');
     } else {
-      pill.classList.add('bg-[#0C0F1A]', 'text-gray-300', 'border');
-      pill.classList.remove('bg-amber-500', 'text-black', 'shadow-lg');
+      pill.classList.add('bg-white', 'text-slate-700', 'border');
+      pill.classList.remove('bg-rose-600', 'text-white', 'shadow-md');
     }
   });
 
   renderProjects();
 }
 
-// ================= 9. STAGE THEME SWITCHER =================
+// ================= 7. STAGE THEME SWITCHER =================
 function setStageTheme(theme) {
   const left = document.getElementById('screenLeftImg');
   const center = document.getElementById('screenCenterImg');
   const right = document.getElementById('screenRightImg');
   const base = document.getElementById('screenBaseImg');
   const title = document.getElementById('stageThemeTitle');
-  const glow = document.getElementById('stageGlow');
 
   document.querySelectorAll('.stage-theme-btn').forEach(btn => {
-    btn.classList.remove('bg-amber-500', 'text-black', 'border-amber-500', 'bg-cyan-500', 'bg-purple-500', 'shadow-[0_0_15px_rgba(245,158,11,0.4)]');
-    btn.classList.add('bg-[#111522]', 'text-gray-300', 'border-gray-700');
+    btn.classList.remove('bg-amber-500', 'text-black', 'border-amber-500', 'bg-cyan-500', 'bg-purple-500', 'shadow-md');
+    btn.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
   });
 
   if (theme === 'royal') {
-    document.getElementById('btnThemeRoyal').classList.add('bg-amber-500', 'text-black', 'border-amber-500', 'shadow-[0_0_15px_rgba(245,158,11,0.4)]');
-    document.getElementById('btnThemeRoyal').classList.remove('bg-[#111522]', 'text-gray-300');
+    document.getElementById('btnThemeRoyal').classList.add('bg-amber-500', 'text-black', 'border-amber-500', 'shadow-md');
+    document.getElementById('btnThemeRoyal').classList.remove('bg-slate-800', 'text-slate-300');
     left.src = './assets/led-stage-2.jpg';
     center.src = './assets/led-stage-1.jpg';
     right.src = './assets/led-stage-3.jpg';
     base.src = './assets/led-stage-4.jpg';
     title.textContent = 'THEME: 👑 Royal Varmala Palace (Synchronized 4K Master)';
-    glow.className = 'absolute inset-0 bg-gradient-to-t from-amber-500/15 via-transparent to-transparent pointer-events-none transition-all duration-700';
   } else if (theme === 'neon') {
     document.getElementById('btnThemeNeon').classList.add('bg-cyan-500', 'text-black', 'border-cyan-500');
-    document.getElementById('btnThemeNeon').classList.remove('bg-[#111522]', 'text-gray-300');
+    document.getElementById('btnThemeNeon').classList.remove('bg-slate-800', 'text-slate-300');
     left.src = './assets/led-stage-3.jpg';
     center.src = './assets/led-stage-2.jpg';
     right.src = './assets/led-stage-1.jpg';
     base.src = './assets/led-stage-4.jpg';
     title.textContent = 'THEME: ⚡ Neon Sangeet Concert (Dynamic Laser Visuals)';
-    glow.className = 'absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-transparent pointer-events-none transition-all duration-700';
   } else if (theme === 'sufi') {
     document.getElementById('btnThemeSufi').classList.add('bg-purple-500', 'text-white', 'border-purple-500');
-    document.getElementById('btnThemeSufi').classList.remove('bg-[#111522]', 'text-gray-300');
+    document.getElementById('btnThemeSufi').classList.remove('bg-slate-800', 'text-slate-300');
     left.src = './assets/led-stage-1.jpg';
     center.src = './assets/led-stage-3.jpg';
     right.src = './assets/led-stage-2.jpg';
     base.src = './assets/led-stage-4.jpg';
     title.textContent = 'THEME: 🌙 Mystical Sufi Night (Warm Lanterns & Geometric Geometry)';
-    glow.className = 'absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-transparent pointer-events-none transition-all duration-700';
   }
 }
 
-// ================= 10. VIDEO MODAL =================
+// ================= 8. VIDEO MODAL =================
 function openVideoModal(url, title) {
   const modal = document.getElementById('videoModal');
   const iframe = document.getElementById('videoIframe');
   const modalTitle = document.getElementById('videoModalTitle');
   currentModalItemTitle = title;
 
-  modalTitle.innerHTML = `<i data-lucide="play-circle" class="w-4 h-4 text-amber-500"></i> <span>${title}</span>`;
+  modalTitle.innerHTML = `<i data-lucide="play-circle" class="w-4 h-4 text-rose-500"></i> <span>${title}</span>`;
   iframe.src = url;
   modal.classList.remove('hidden');
   if (window.lucide) lucide.createIcons();
@@ -499,7 +433,7 @@ function orderCurrentModalItem() {
   window.open(`https://wa.me/919540642600?text=${text}`, '_blank');
 }
 
-// ================= 11. CART MANAGEMENT =================
+// ================= 9. CART MANAGEMENT =================
 function addToCart(projectId) {
   const item = projectsData.find(p => p.id === projectId);
   if (!item) return;
@@ -530,8 +464,8 @@ function updateCartUI() {
 
   if (cart.length === 0) {
     container.innerHTML = `
-      <div class="text-center py-16 text-gray-400 text-sm">
-        <i data-lucide="folder-x" class="w-12 h-12 text-gray-600 mx-auto mb-3"></i>
+      <div class="text-center py-16 text-slate-400 text-sm">
+        <i data-lucide="folder-x" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
         Your cart is currently empty.
       </div>
     `;
@@ -544,14 +478,14 @@ function updateCartUI() {
   container.innerHTML = cart.map(item => {
     totalAmount += item.price * item.quantity;
     return `
-      <div class="p-3 rounded-xl bg-[#111524] border border-gray-800 flex items-center justify-between gap-3">
+      <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
         <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover shrink-0">
         <div class="flex-1 min-w-0">
-          <h4 class="text-xs font-bold text-white truncate">${item.title}</h4>
-          <span class="text-[10px] text-amber-400 font-semibold">₹${item.price.toLocaleString('en-IN')}</span>
-          <span class="text-[10px] text-gray-500 block">${item.badge}</span>
+          <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
+          <span class="text-xs text-rose-600 font-extrabold">₹${item.price.toLocaleString('en-IN')}</span>
+          <span class="text-[10px] text-slate-500 block">${item.badge}</span>
         </div>
-        <button onclick="removeFromCart('${item.id}')" class="text-gray-400 hover:text-rose-400 p-1.5 transition">
+        <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-rose-600 p-1.5 transition">
           <i data-lucide="trash-2" class="w-4 h-4"></i>
         </button>
       </div>
@@ -602,23 +536,7 @@ function checkoutViaWhatsApp() {
   window.open(waUrl, '_blank');
 }
 
-// ================= 12. SOUND EQUALIZER TOGGLE =================
-function toggleAudioFx() {
-  isAudioActive = !isAudioActive;
-  const bars = document.querySelectorAll('.eq-bar');
-  const text = document.getElementById('audioText');
-
-  bars.forEach(b => {
-    b.style.animationPlayState = isAudioActive ? 'running' : 'paused';
-  });
-
-  if (text) {
-    text.textContent = isAudioActive ? 'Audio: Live' : 'Audio: Muted';
-    text.className = isAudioActive ? 'text-[11px] text-amber-400 font-bold' : 'text-[11px] text-gray-500 font-bold';
-  }
-}
-
-// ================= 13. CONTACT FORM =================
+// ================= 10. CONTACT FORM =================
 function handleContactSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('formName').value.trim();
@@ -630,7 +548,7 @@ function handleContactSubmit(e) {
   window.open(`https://wa.me/919540642600?text=${encodeURIComponent(waText)}`, '_blank');
 }
 
-// ================= 14. EVENT LISTENERS =================
+// ================= 11. EVENT LISTENERS =================
 function setupEventListeners() {
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
