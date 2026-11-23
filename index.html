@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anss Studio | Premier Wedding Video Projects & 4K Stage LED Visuals (Delhi)</title>
+  <title>Anss Studio | Luxury Wedding Video Projects & 4K Stage LED Visuals</title>
   
   <!-- SEO & Social Meta -->
-  <meta name="description" content="Anss Studio is India's leading wedding project making studio based in Delhi. Download ready-to-use projects for Premiere Pro, Edius, FCP, After Effects & 4K LED Stage Visuals.">
+  <meta name="description" content="India's #1 Luxury Wedding Project Studio in Delhi. Ready-to-edit 4K project packs for Premiere Pro, Edius, FCP, After Effects & 3D Stage LED Visuals.">
   <meta name="keywords" content="Anss Studio, Wedding video projects, Edius project, Premiere pro wedding template, FCP wedding project, After effects wedding invite, LED stage visuals, Delhi video editing studio">
-  <meta name="author" content="Anss Studio Pvt. Ltd.">
-  <meta property="og:title" content="Anss Studio | Premier Wedding Video Projects & Stage LED Visuals">
-  <meta property="og:description" content="Ready-to-use 4K Wedding Projects for Premiere Pro, Edius, FCP, After Effects & 3D Stage Visuals. Instant Download.">
+  <meta property="og:title" content="Anss Studio | Luxury Wedding Video Projects & 4K Stage LED Visuals">
+  <meta property="og:description" content="Transform raw footage into cinematic gold. Instant Google Drive downloads for wedding cinematographers.">
   <meta property="og:image" content="./assets/logo.png">
   <meta property="og:type" content="website">
 
@@ -29,498 +28,655 @@
               gold: '#F59E0B',
               goldLight: '#FDE68A',
               goldDark: '#B45309',
-              dark: '#080A0F',
-              card: '#111522',
-              cardBorder: '#1E2638',
-              accent: '#6366F1'
+              goldGlow: 'rgba(245, 158, 11, 0.4)',
+              dark: '#05070B',
+              card: '#0C0F1A',
+              cardBorder: '#1A2133',
+              accent: '#8B5CF6'
             }
           },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            display: ['Syne', 'sans-serif']
+            display: ['Syne', 'sans-serif'],
+            cinematic: ['Cinzel', 'serif']
           }
         }
       }
     }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Syne + Plus Jakarta Sans + Cinzel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    :root {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
     body {
-      background-color: #07090E;
+      background-color: #05070B;
       color: #E2E8F0;
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
+      cursor: default;
     }
-    .font-display {
-      font-family: 'Syne', sans-serif;
+    .font-display { font-family: 'Syne', sans-serif; }
+    .font-cinematic { font-family: 'Cinzel', serif; }
+
+    /* Interactive Cursor Spotlight */
+    #cursorSpotlight {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y), rgba(245, 158, 11, 0.07), transparent 70%);
+      transition: background 0.05s ease;
     }
-    .gold-gradient {
-      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #D97706 100%);
+
+    /* Luxury Shimmering Gold Text */
+    .shimmer-gold {
+      background: linear-gradient(90deg, #F59E0B 0%, #FFFBEB 25%, #F59E0B 50%, #D97706 75%, #F59E0B 100%);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
     }
-    .gold-btn-gradient {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
-    .gold-btn-gradient:hover {
-      background: linear-gradient(135deg, #FBBF24 0%, #B45309 100%);
+
+    /* Aurora Glow Backgrounds */
+    .aurora-bg {
+      background: 
+        radial-gradient(ellipse 60% 50% at 50% -20%, rgba(245, 158, 11, 0.18), transparent 70%),
+        radial-gradient(ellipse 40% 40% at 85% 20%, rgba(139, 92, 246, 0.14), transparent 60%),
+        radial-gradient(ellipse 50% 50% at 15% 40%, rgba(6, 182, 212, 0.12), transparent 70%);
     }
+
+    /* Glassmorphism & Borders */
     .glass-nav {
-      background: rgba(8, 10, 15, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5, 7, 11, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-card {
-      background: rgba(17, 21, 34, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(12, 15, 26, 0.7);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .glass-card:hover {
-      border-color: rgba(245, 158, 11, 0.4);
-      transform: translateY(-4px);
+      border-color: rgba(245, 158, 11, 0.5);
+      box-shadow: 0 12px 35px -8px rgba(245, 158, 11, 0.25);
+      transform: translateY(-5px);
     }
-    .glow-gold {
-      box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.35);
+
+    /* Golden Button Gradient */
+    .gold-btn {
+      background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+      transition: all 0.3s ease;
     }
-    .glow-cyan {
-      box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.35);
+    .gold-btn:hover {
+      background: linear-gradient(135deg, #FDE68A 0%, #B45309 100%);
+      box-shadow: 0 6px 28px rgba(245, 158, 11, 0.55);
+      transform: translateY(-2px);
     }
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #080A0F;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1E2638;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
+
+    /* Equalizer Sound Waves */
+    .eq-bar {
+      width: 3px;
       background: #F59E0B;
+      border-radius: 2px;
+      animation: bounce-eq 1.2s ease-in-out infinite alternate;
     }
-    @keyframes pulse-subtle {
-      0%, 100% { opacity: 0.9; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.02); }
+    .eq-bar:nth-child(1) { height: 14px; animation-delay: 0.1s; }
+    .eq-bar:nth-child(2) { height: 22px; animation-delay: 0.3s; }
+    .eq-bar:nth-child(3) { height: 10px; animation-delay: 0.5s; }
+    .eq-bar:nth-child(4) { height: 18px; animation-delay: 0.2s; }
+    @keyframes bounce-eq {
+      0% { transform: scaleY(0.3); }
+      100% { transform: scaleY(1.1); }
     }
-    .animate-pulse-subtle {
-      animation: pulse-subtle 4s infinite ease-in-out;
+
+    /* Marquee Infinite Loop */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
     }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Video Playhead Pulse */
+    @keyframes playhead-move {
+      0% { left: 5%; }
+      50% { left: 85%; }
+      100% { left: 5%; }
+    }
+    .animate-playhead {
+      animation: playhead-move 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #05070B; }
+    ::-webkit-scrollbar-thumb { background: #1E2638; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+
     /* Modal Backdrop */
     .modal-backdrop {
-      background: rgba(4, 6, 10, 0.9);
-      backdrop-filter: blur(10px);
+      background: rgba(3, 4, 8, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Stage Spotlights */
+    .spotlight-beam-left {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.35) 0%, transparent 70%);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    .spotlight-beam-right {
+      background: linear-gradient(225deg, rgba(6, 182, 212, 0.35) 0%, transparent 70%);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
   </style>
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Anss Studio Pvt. Ltd.",
-    "image": "https://www.anssstudio.com/wp-content/uploads/2021/02/cropped-anss-studio-logo.png",
-    "description": "Premier wedding project making studio in Delhi. Edius, Premiere, FCP, After Effects & Stage LED Visuals.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "B-146 West Vinod Nagar, Opposite Press Apartment",
-      "addressLocality": "Delhi",
-      "postalCode": "110092",
-      "addressCountry": "IN"
-    },
-    "telephone": "+919540642600",
-    "priceRange": "₹₹",
-    "openingHours": "Mo-Sa 09:00-23:00"
-  }
-  </script>
 </head>
 <body class="selection:bg-amber-500 selection:text-black">
 
-  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
-  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-black text-xs font-semibold py-2 px-4 text-center flex items-center justify-center gap-2 relative z-50">
-    <span class="bg-black/20 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">2026 Collection</span>
-    <span>🔥 New Royal Wedding Edius & Premiere Master Projects Released! Instant Google Drive Access.</span>
-    <a href="#projects" class="underline hover:text-white transition ml-2 hidden sm:inline">Explore Packs &rarr;</a>
+  <!-- Interactive Background Spotlight Following Mouse -->
+  <div id="cursorSpotlight"></div>
+
+  <!-- Interactive Stardust Floating Particles Canvas -->
+  <canvas id="particlesCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- ================= TOP VIP ANNOUNCEMENT BAR ================= -->
+  <div class="relative z-50 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-black text-xs font-bold py-2.5 px-4 text-center flex items-center justify-center gap-3 shadow-md">
+    <span class="bg-black text-amber-400 text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-black border border-amber-300/40">2026 ROYAL EDITION</span>
+    <span class="tracking-wide">🔥 New Edius 11 & Premiere Pro Royal Varmala Master Projects Are Live!</span>
+    <a href="#projects" class="bg-black/80 hover:bg-black text-white text-[11px] font-bold px-3 py-1 rounded-full transition ml-1 inline-flex items-center gap-1">
+      <span>Get Instant Drive Link</span>
+      <i data-lucide="arrow-right" class="w-3 h-3"></i>
+    </a>
   </div>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+  <!-- ================= LUXURY NAVBAR ================= -->
+  <header class="sticky top-0 z-40 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="relative w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 p-1.5 border border-amber-500/30 flex items-center justify-center group-hover:border-amber-500 transition duration-300">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/25 to-amber-900/10 p-1.5 border border-amber-500/40 flex items-center justify-center group-hover:border-amber-400 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all duration-300">
           <img src="./assets/logo.png" alt="Anss Studio Logo" class="w-full h-full object-contain filter drop-shadow">
-          <span class="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-500 border-2 border-[#080A0F] rounded-full" title="Studio Open Now"></span>
+          <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[#05070B] rounded-full shadow-lg"></span>
         </div>
         <div>
-          <span class="text-xl font-bold font-display tracking-wider text-white flex items-center gap-1.5">
-            ANSS <span class="text-amber-500">STUDIO</span>
+          <span class="text-xl sm:text-2xl font-black font-cinematic tracking-wider text-white flex items-center gap-1">
+            ANSS <span class="shimmer-gold">STUDIO</span>
           </span>
-          <span class="text-[10px] text-gray-400 block tracking-wider uppercase font-medium">Wedding & Stage Visuals</span>
+          <span class="text-[9px] text-amber-400/90 tracking-[0.25em] block uppercase font-bold">Wedding & Stage Visuals</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
-        <a href="#projects" class="hover:text-amber-400 transition flex items-center gap-1">
-          <i data-lucide="layers" class="w-4 h-4 text-amber-500"></i> Video Projects
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold text-gray-300 uppercase tracking-wider">
+        <a href="#projects" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i data-lucide="film" class="w-4 h-4 text-amber-500"></i> Video Projects
         </a>
-        <a href="#led-visualizer" class="hover:text-amber-400 transition flex items-center gap-1">
-          <i data-lucide="monitor-play" class="w-4 h-4 text-cyan-400"></i> 3D LED Stages
+        <a href="#comparison" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i data-lucide="sliders" class="w-4 h-4 text-purple-400"></i> Color Grade Lab
         </a>
-        <a href="#software" class="hover:text-amber-400 transition flex items-center gap-1">
-          <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i> Softwares
+        <a href="#led-visualizer" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i data-lucide="monitor" class="w-4 h-4 text-cyan-400"></i> 3D Stage LED
         </a>
-        <a href="#why-us" class="hover:text-amber-400 transition flex items-center gap-1">
-          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i> Why Us
+        <a href="#why-us" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Studio Trust
         </a>
-        <a href="#contact" class="hover:text-amber-400 transition flex items-center gap-1">
-          <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i> Delhi Studio
+        <a href="#contact" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i> Delhi Office
         </a>
       </nav>
 
-      <!-- Right CTAs & Cart Drawer Toggle -->
+      <!-- Right CTAs & Interactive Equalizer -->
       <div class="flex items-center gap-3">
-        <!-- Search Trigger -->
-        <div class="relative hidden md:block">
-          <input type="text" id="searchInput" placeholder="Search templates..." class="bg-[#111522] border border-gray-700/60 rounded-full px-4 py-2 pl-9 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 w-44 lg:w-56 transition-all">
-          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-2.5"></i>
-        </div>
-
-        <!-- WhatsApp Direct Chat Button -->
-        <a href="https://wa.me/919540642600?text=Hello%20Anss%20Studio,%20I%20want%20to%20inquire%20about%20Wedding%20Projects%20and%20LED%20Stage%20Visuals" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 bg-[#128C7E]/20 hover:bg-[#128C7E]/40 border border-[#25D366]/40 text-[#25D366] px-3.5 py-2 rounded-full text-xs font-semibold transition">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>WhatsApp Help</span>
-        </a>
-
-        <!-- Cart Toggle Button -->
-        <button id="openCartBtn" class="relative bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 p-2.5 rounded-full transition flex items-center justify-center">
-          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-          <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-amber-500 text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#080A0F]">0</span>
+        
+        <!-- Ambient Sound FX Equalizer Button -->
+        <button id="audioToggleBtn" onclick="toggleAudioFx()" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-amber-500/40 text-xs font-medium text-gray-300 transition" title="Toggle Studio Sound Experience">
+          <div class="flex items-end gap-0.5 h-4 w-4">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+          </div>
+          <span id="audioText" class="text-[11px] text-amber-400 font-bold">Audio: Live</span>
         </button>
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Search Bar -->
+        <div class="relative hidden sm:block">
+          <input type="text" id="searchInput" placeholder="Search templates..." class="bg-[#0C0F1A] border border-gray-700/60 rounded-full px-4 py-2 pl-9 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 w-36 lg:w-48 transition-all">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-3 top-2.5"></i>
+        </div>
+
+        <!-- WhatsApp Quick Connect -->
+        <a href="https://wa.me/919540642600?text=Hello%20Anss%20Studio,%20I%20want%20to%20order%20wedding%20video%20projects" target="_blank" rel="noopener" class="bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] px-3.5 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition shadow-sm">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+
+        <!-- Cart Button -->
+        <button id="openCartBtn" class="relative bg-amber-500/15 hover:bg-amber-500/25 text-amber-400 border border-amber-500/40 p-2.5 rounded-full transition flex items-center justify-center">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-amber-500 text-black text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#05070B]">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
         <button id="mobileMenuBtn" class="lg:hidden p-2 text-gray-400 hover:text-white">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
+
     </div>
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-[#0A0D14] border-b border-gray-800 px-6 py-4 space-y-3">
       <input type="text" id="mobileSearchInput" placeholder="Search templates..." class="w-full bg-[#111522] border border-gray-700 rounded-lg px-4 py-2 text-sm text-white mb-2">
       <a href="#projects" class="block py-2 text-gray-300 hover:text-amber-400 font-medium">Video Projects</a>
+      <a href="#comparison" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Color Grade Lab</a>
       <a href="#led-visualizer" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">3D LED Stages</a>
-      <a href="#software" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Softwares</a>
       <a href="#why-us" class="block py-2 text-gray-300 hover:text-emerald-400 font-medium">Why Us</a>
       <a href="#contact" class="block py-2 text-gray-300 hover:text-rose-400 font-medium">Delhi Studio & Contact</a>
       <a href="https://wa.me/919540642600" target="_blank" class="block text-center bg-emerald-600 text-white font-semibold py-2.5 rounded-lg text-sm">Chat on WhatsApp (+91 9540642600)</a>
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="relative pt-12 pb-24 overflow-hidden">
-    <!-- Background Ambient Glow Orbs -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-amber-600/15 via-purple-600/10 to-cyan-500/15 blur-[120px] pointer-events-none rounded-full"></div>
-    <div class="absolute -top-24 right-10 w-96 h-96 bg-amber-500/10 blur-[100px] pointer-events-none rounded-full"></div>
-
+  <!-- ================= CINEMATIC HERO SECTION ================= -->
+  <section class="relative pt-12 pb-24 aurora-bg overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Top Micro Badge -->
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-purple-500/10 to-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold tracking-widest uppercase">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+          <span>Crafted in Delhi • Trusted by 500+ Indian Cinematographers</span>
+        </div>
+      </div>
+
+      <!-- Main Headline -->
+      <div class="text-center max-w-4xl mx-auto space-y-6">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-cinematic leading-[1.08] tracking-tight text-white">
+          CINEMATIC WEDDING <br>
+          <span class="shimmer-gold">PROJECTS & 4K STAGE VISUALS</span>
+        </h1>
         
-        <!-- Left Hero Content (7 Cols) -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <p class="text-gray-300 text-base sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+          Deliver breathtaking wedding films in hours, not weeks. Ready-to-render timelines for <span class="text-white font-semibold">Premiere Pro, Edius, FCP & After Effects</span>, plus synchronised <span class="text-amber-400 font-semibold">Stage LED Graphics</span>.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <a href="#projects" class="gold-btn text-black font-black px-8 py-4 rounded-full text-sm uppercase tracking-wider flex items-center gap-2.5">
+            <i data-lucide="zap" class="w-4 h-4 fill-black"></i>
+            <span>Explore 2026 Projects</span>
+          </a>
+
+          <button onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1', 'Anss Studio 4K Showreel')" class="glass-card hover:bg-white/10 text-white font-bold px-7 py-4 rounded-full text-sm uppercase tracking-wider flex items-center gap-2 border border-white/20">
+            <i data-lucide="play-circle" class="w-5 h-5 text-amber-400 fill-amber-400/20"></i>
+            <span>Watch 4K Showreel</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= 3D INTERACTIVE TIMELINE / STUDIO MONITOR MOCKUP ================= -->
+      <div class="mt-14 max-w-5xl mx-auto relative">
+        <div class="relative rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-amber-500/30 via-white/5 to-transparent border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.8)]">
           
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span>INDIA'S PREMIER WEDDING PROJECT & STAGE LED STUDIO</span>
-          </div>
-
-          <!-- Main Catchy Title -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight text-white">
-            Transform Raw Footage Into <br class="hidden sm:block">
-            <span class="gold-gradient">Cinematic Masterpieces</span>
-          </h1>
-
-          <!-- Description -->
-          <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-            Download production-ready wedding project packs for <strong class="text-white font-medium">Premiere Pro, Edius, FCP, After Effects</strong> and stunning <strong class="text-amber-400 font-medium">4K Stage LED Visuals</strong>. Built for professional wedding cinematographers, video editors, and production studios.
-          </p>
-
-          <!-- CTAs -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-            <a href="#projects" class="gold-btn-gradient text-black font-bold px-7 py-3.5 rounded-full text-sm shadow-lg shadow-amber-500/20 hover:scale-105 transition-all flex items-center gap-2">
-              <i data-lucide="zap" class="w-4 h-4 fill-black"></i>
-              <span>Explore 2026 Collection</span>
-            </a>
+          <!-- Mockup Window Bar -->
+          <div class="bg-[#090C16] rounded-2xl overflow-hidden border border-gray-800">
             
-            <button onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'Studio Showreel 2026')" class="glass-card hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-all flex items-center gap-2 border border-white/10">
-              <i data-lucide="play-circle" class="w-5 h-5 text-amber-400"></i>
-              <span>Watch Studio Showreel</span>
-            </button>
-            
-            <a href="https://wa.me/919540642600?text=I%20want%20to%20order%20wedding%20projects" target="_blank" class="text-xs text-gray-400 hover:text-white flex items-center gap-1.5 transition">
-              <i data-lucide="phone-call" class="w-3.5 h-3.5 text-emerald-400"></i> Call: +91 9540642600
-            </a>
-          </div>
+            <!-- Window Topbar -->
+            <div class="bg-[#0D111E] px-4 py-2.5 border-b border-gray-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                <span class="text-[11px] font-mono text-gray-400 ml-2">Anss_Royal_Wedding_Master_Timeline_2026.prproj</span>
+              </div>
+              <div class="flex items-center gap-3 text-[10px] text-gray-400 font-mono">
+                <span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded font-bold">4K UHD • 60.00 FPS</span>
+                <span>REC 709 10-BIT</span>
+              </div>
+            </div>
 
-          <!-- Live Feature Checklist -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-gray-800/80 text-left">
-            <div class="flex items-center gap-2 text-xs text-gray-300">
-              <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>Instant Google Drive</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-gray-300">
-              <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>Zero Missing Plugins</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-gray-300">
-              <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>4K / 60FPS Timelines</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-gray-300">
-              <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>Free Tech Support</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Hero Visual Card (5 Cols) -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative rounded-2xl p-2 bg-gradient-to-b from-amber-500/30 via-white/5 to-transparent border border-white/10 shadow-2xl glow-gold">
-            
-            <!-- Main Showcase Image with Hover Video Trigger -->
-            <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#111522] group cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1', 'Edius & Premiere Wedding Master Demo')">
-              <img src="./assets/edius-project.jpg" alt="Edius Wedding Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <!-- Video Monitor Screen -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-[#07090F]">
               
-              <!-- Dark Overlay with Play Pulse -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
-                <span class="inline-block bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider mb-2 self-start">FEATURED RELEASE</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition">Edius 11 & Premiere 2026 Master Timeline</h3>
-                <p class="text-xs text-gray-300 mt-1">Full Ceremony, Royal Varmala, Haldi Song Mixing & Teasers</p>
+              <!-- Video Preview Display (8 cols) -->
+              <div class="lg:col-span-8 relative aspect-video bg-black overflow-hidden group cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1', 'Edius & Premiere Royal Wedding Master Timeline')">
+                <img src="./assets/premiere-project.jpg" alt="Video Timeline Preview" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                 
-                <div class="mt-4 flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <span class="text-amber-400 font-bold text-lg">₹11,500</span>
-                    <span class="text-gray-400 line-through text-xs">₹15,000</span>
+                <!-- Live Broadcast Badge -->
+                <div class="absolute top-4 left-4 flex items-center gap-2 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                  <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                  <span class="text-[10px] font-bold text-white uppercase tracking-wider">PROJECT MASTER MONITOR</span>
+                </div>
+
+                <!-- Center Floating Play Button -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-full bg-amber-500/90 hover:bg-amber-400 text-black flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)] transform group-hover:scale-110 transition duration-300">
+                    <i data-lucide="play" class="w-7 h-7 fill-black ml-1"></i>
                   </div>
-                  <span class="bg-white/10 hover:bg-amber-500 hover:text-black text-white text-xs font-semibold px-3 py-1.5 rounded-full transition flex items-center gap-1.5">
-                    <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Preview Demo
-                  </span>
+                </div>
+
+                <!-- Bottom Timecode Overlay -->
+                <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-white/90 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="video" class="w-3.5 h-3.5 text-amber-400"></i>
+                    <span>TC: 01:24:18:02</span>
+                  </div>
+                  <span class="text-amber-400 font-bold">CLICK TO WATCH MASTER DEMO</span>
                 </div>
               </div>
 
-              <!-- Floating Center Play Icon -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="w-16 h-16 rounded-full bg-amber-500/90 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                  <i data-lucide="play" class="w-7 h-7 fill-black ml-1"></i>
+              <!-- Right Tools / Grading Panel (4 cols) -->
+              <div class="lg:col-span-4 p-5 bg-[#0A0D18] border-l border-gray-800/80 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center justify-between text-xs font-bold text-white mb-3">
+                    <span class="text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Color Look: Royal Velvet
+                    </span>
+                    <span class="text-[10px] text-gray-500">LUT v4.2</span>
+                  </div>
+
+                  <!-- 3 Color Wheels Simulation -->
+                  <div class="grid grid-cols-3 gap-2 text-center py-2">
+                    <div>
+                      <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-blue-900/40 via-gray-800 to-amber-900/40 border border-amber-500/40 flex items-center justify-center relative">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_#F59E0B]"></span>
+                      </div>
+                      <span class="text-[9px] font-mono text-gray-400 mt-1 block">SHADOWS</span>
+                    </div>
+                    <div>
+                      <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-purple-900/40 via-gray-800 to-rose-900/40 border border-purple-500/40 flex items-center justify-center relative">
+                        <span class="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-[0_0_8px_#8B5CF6]"></span>
+                      </div>
+                      <span class="text-[9px] font-mono text-gray-400 mt-1 block">MIDTONES</span>
+                    </div>
+                    <div>
+                      <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-amber-900/40 via-gray-800 to-yellow-500/40 border border-yellow-500/40 flex items-center justify-center relative">
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-300 shadow-[0_0_8px_#FDE047]"></span>
+                      </div>
+                      <span class="text-[9px] font-mono text-gray-400 mt-1 block">HIGHLIGHTS</span>
+                    </div>
+                  </div>
+
+                  <!-- Specs Checklist -->
+                  <div class="space-y-2 mt-4 pt-3 border-t border-gray-800 text-xs text-gray-300">
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Audio Sync:</span>
+                      <span class="text-emerald-400 font-semibold">100% Beat Match</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Plugins:</span>
+                      <span class="text-white font-semibold">Zero Extra Plugins</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Software:</span>
+                      <span class="text-amber-400 font-semibold">Edius / PR / FCP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#projects" class="w-full text-center bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl text-xs transition uppercase tracking-wider">
+                  Download This Timeline
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Simulated NLE Multi-Track Timeline (Bottom) -->
+            <div class="p-4 bg-[#080B14] border-t border-gray-800/80 relative overflow-hidden">
+              <!-- Moving Playhead Red Line -->
+              <div class="absolute top-0 bottom-0 w-0.5 bg-rose-500 animate-playhead z-20 shadow-[0_0_10px_#F43F5E]">
+                <div class="w-2.5 h-2.5 bg-rose-500 -ml-1 transform rotate-45"></div>
+              </div>
+
+              <!-- Track 1: Video Tracks -->
+              <div class="space-y-1.5 font-mono text-[10px]">
+                <div class="flex items-center gap-2">
+                  <span class="w-8 text-gray-500 text-right font-bold">V2</span>
+                  <div class="flex-1 h-6 bg-purple-950/60 rounded border border-purple-500/30 flex items-center px-2 text-purple-300">
+                    👑 Royal Titles & 3D Flourish Transitions [.AEP]
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="w-8 text-gray-500 text-right font-bold">V1</span>
+                  <div class="flex-1 h-7 bg-amber-950/60 rounded border border-amber-500/30 flex items-center justify-between px-3 text-amber-200">
+                    <span>🎬 Couple Grand Varmala & Haldi Ceremony Master Clips [4K 60FPS]</span>
+                    <span class="text-[9px] text-amber-400 bg-amber-500/20 px-1.5 py-0.5 rounded">Speed Ramp Sync</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class="w-8 text-gray-500 text-right font-bold">A1</span>
+                  <div class="flex-1 h-5 bg-emerald-950/60 rounded border border-emerald-500/30 flex items-center px-2 text-emerald-300">
+                    🎵 Dhol Beats + Sufi Romance Mixed High Fidelity Master
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Floating Software Badges around card -->
-            <div class="absolute -top-4 -left-4 bg-[#111522] border border-purple-500/40 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xl backdrop-blur-md">
-              <span class="w-3 h-3 rounded-full bg-purple-500"></span>
-              <span class="text-xs font-bold text-white">Premiere Pro</span>
-            </div>
-
-            <div class="absolute -bottom-4 -right-4 bg-[#111522] border border-cyan-500/40 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xl backdrop-blur-md">
-              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
-              <span class="text-xs font-bold text-white">4K LED Stages</span>
             </div>
 
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
-  <!-- ================= LIVE STATS BANNER ================= -->
-  <section class="border-y border-white/5 bg-[#0B0E17]/80 py-8 relative">
+  <!-- ================= INFINITE MARQUEE TICKER ================= -->
+  <div class="bg-gradient-to-r from-amber-600 via-[#111522] to-amber-600 py-3.5 border-y border-amber-500/20 overflow-hidden relative">
+    <div class="marquee-track flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-amber-200">
+      <span>👑 2026 ROYAL WEDDING MASTER TIMELINES</span>
+      <span class="text-amber-500">•</span>
+      <span>⚡ EDIUS 11 SONG MIXING PACKS</span>
+      <span class="text-amber-500">•</span>
+      <span>🟣 ADOBE PREMIERE PRO 4K CINEMATIC TEASERS</span>
+      <span class="text-amber-500">•</span>
+      <span>🎆 3D STAGE LED VISUALS (CENTER & WINGS)</span>
+      <span class="text-amber-500">•</span>
+      <span>🍎 FINAL CUT PRO APPLE SILICON ACCELERATED</span>
+      <span class="text-amber-500">•</span>
+      <span>🚀 INSTANT GOOGLE DRIVE DOWNLOAD LINKS</span>
+      <span class="text-amber-500">•</span>
+      <span>🏆 OVER 10,000+ WEDDING FILMS PROCESSED</span>
+      <span class="text-amber-500">•</span>
+      <span>👑 2026 ROYAL WEDDING MASTER TIMELINES</span>
+      <span class="text-amber-500">•</span>
+      <span>⚡ EDIUS 11 SONG MIXING PACKS</span>
+      <span class="text-amber-500">•</span>
+      <span>🟣 ADOBE PREMIERE PRO 4K CINEMATIC TEASERS</span>
+      <span class="text-amber-500">•</span>
+      <span>🎆 3D STAGE LED VISUALS (CENTER & WINGS)</span>
+      <span class="text-amber-500">•</span>
+    </div>
+  </div>
+
+  <!-- ================= INTERACTIVE BEFORE / AFTER COLOR GRADE LAB ================= -->
+  <section id="comparison" class="py-20 relative bg-[#07090F]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-800/60">
-        <div>
-          <div class="text-3xl sm:text-4xl font-extrabold text-white font-display">10,000<span class="text-amber-500">+</span></div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1 font-medium">Projects Delivered</div>
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Interactive Color Grade Lab</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-cinematic text-white mt-2">
+          From Flat Camera S-Log to Pure Cinematic Gold
+        </h2>
+        <p class="text-gray-400 text-sm mt-2">
+          Drag the glowing slider below to see how Anss Studio’s built-in LUTs and curve profiles transform washed-out camera footage into vibrant royal wedding colors.
+        </p>
+      </div>
+
+      <!-- Before / After Interactive Slider Container -->
+      <div class="max-w-4xl mx-auto">
+        <div id="sliderWrapper" class="relative rounded-3xl overflow-hidden aspect-[16/9] border-2 border-amber-500/40 shadow-[0_0_50px_rgba(245,158,11,0.25)] select-none cursor-ew-resize">
+          
+          <!-- Image 2: AFTER (Full Color Graded) - Background -->
+          <div class="absolute inset-0">
+            <img src="./assets/premiere-project.jpg" alt="After Color Grading" class="w-full h-full object-cover brightness-115 contrast-125 saturate-125">
+            <div class="absolute top-4 right-4 bg-amber-500/90 text-black text-xs font-black px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 fill-black text-amber-500"></i>
+              <span>ANSS STUDIO 4K COLOR GRADE</span>
+            </div>
+          </div>
+
+          <!-- Image 1: BEFORE (Raw Flat Log Footage) - Clipped by width -->
+          <div id="beforeImageContainer" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-amber-400 shadow-2xl">
+            <img src="./assets/premiere-project.jpg" alt="Before Color Grading" class="w-full h-full object-cover filter grayscale contrast-75 brightness-90 max-w-none" style="width: 100%; height: 100%;">
+            <div class="absolute top-4 left-4 bg-black/80 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-full border border-white/20">
+              <span>RAW CAMERA PROFILE (FLAT LOG)</span>
+            </div>
+          </div>
+
+          <!-- Draggable Divider Handle -->
+          <div id="sliderHandle" class="absolute top-0 bottom-0 left-1/2 -ml-4 w-8 flex items-center justify-center pointer-events-none z-30">
+            <div class="w-9 h-9 rounded-full bg-amber-500 text-black font-bold flex items-center justify-center shadow-[0_0_25px_#F59E0B] border-2 border-white">
+              <i data-lucide="chevrons-left-right" class="w-5 h-5 text-black"></i>
+            </div>
+          </div>
+
         </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-extrabold text-white font-display">500<span class="text-amber-500">+</span></div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1 font-medium">Studios Across India</div>
-        </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-extrabold text-white font-display">4K <span class="text-amber-500">60FPS</span></div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1 font-medium">Master Quality</div>
-        </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-extrabold text-white font-display">4.9<span class="text-amber-500">/5 ★</span></div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1 font-medium">1,240+ Verified Reviews</div>
+
+        <div class="text-center mt-4 text-xs text-gray-400 flex items-center justify-center gap-2">
+          <i data-lucide="hand" class="w-4 h-4 text-amber-400"></i>
+          <span>Click & Drag or Swipe horizontally on the screen to compare</span>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ================= SOFTWARE DIRECTORY ================= -->
-  <section id="software" class="py-16 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Compatibility & Architecture</span>
-        <h2 class="text-3xl font-extrabold font-display text-white mt-2">All Major Video Softwares Supported</h2>
-        <p class="text-gray-400 text-sm mt-2">Projects pre-tested on Windows 10/11 & macOS Apple Silicon (M1/M2/M3/M4) without plugin errors.</p>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        <!-- Premiere Pro -->
-        <div class="glass-card rounded-2xl p-6 text-center group cursor-pointer" onclick="filterCategory('premiere')">
-          <div class="w-16 h-16 rounded-2xl bg-purple-900/30 border border-purple-500/40 text-purple-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-            <span class="text-2xl font-black">Pr</span>
-          </div>
-          <h3 class="font-bold text-white group-hover:text-amber-400 transition">Premiere Pro</h3>
-          <p class="text-xs text-gray-400 mt-1">v2020 – 2026 Compatible</p>
-          <span class="text-[11px] text-amber-400 font-semibold block mt-3">View 8 Projects &rarr;</span>
-        </div>
-
-        <!-- After Effects -->
-        <div class="glass-card rounded-2xl p-6 text-center group cursor-pointer" onclick="filterCategory('after-effects')">
-          <div class="w-16 h-16 rounded-2xl bg-blue-900/30 border border-blue-500/40 text-blue-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-            <span class="text-2xl font-black">Ae</span>
-          </div>
-          <h3 class="font-bold text-white group-hover:text-amber-400 transition">After Effects</h3>
-          <p class="text-xs text-gray-400 mt-1">3D Titles & Invitation</p>
-          <span class="text-[11px] text-amber-400 font-semibold block mt-3">View 6 Projects &rarr;</span>
-        </div>
-
-        <!-- Edius Pro -->
-        <div class="glass-card rounded-2xl p-6 text-center group cursor-pointer" onclick="filterCategory('edius')">
-          <div class="w-16 h-16 rounded-2xl bg-emerald-900/30 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-            <span class="text-2xl font-black">Ed</span>
-          </div>
-          <h3 class="font-bold text-white group-hover:text-amber-400 transition">Edius Pro</h3>
-          <p class="text-xs text-gray-400 mt-1">Edius 9, 10 & 11 Ready</p>
-          <span class="text-[11px] text-amber-400 font-semibold block mt-3">View 10 Projects &rarr;</span>
-        </div>
-
-        <!-- Final Cut Pro -->
-        <div class="glass-card rounded-2xl p-6 text-center group cursor-pointer" onclick="filterCategory('fcp')">
-          <div class="w-16 h-16 rounded-2xl bg-amber-900/30 border border-amber-500/40 text-amber-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-            <span class="text-2xl font-black">FCP</span>
-          </div>
-          <h3 class="font-bold text-white group-hover:text-amber-400 transition">Final Cut Pro</h3>
-          <p class="text-xs text-gray-400 mt-1">Apple Silicon Fast Timelines</p>
-          <span class="text-[11px] text-amber-400 font-semibold block mt-3">View 5 Projects &rarr;</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 3D LED STAGE VISUALIZER (EXCLUSIVE SHOWSTOPPER) ================= -->
-  <section id="led-visualizer" class="py-20 relative bg-gradient-to-b from-[#080A0F] via-[#0E1322] to-[#080A0F] border-y border-cyan-500/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ================= 3D CONCERT STAGE LED VISUALIZER ================= -->
+  <section id="led-visualizer" class="py-24 relative bg-gradient-to-b from-[#07090F] via-[#0B0F1C] to-[#07090F] border-y border-cyan-500/20 overflow-hidden">
+    
+    <!-- Top Stage Lighting Truss Graphics -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
-            <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
-            <span>EXCLUSIVE INNOVATION FOR WEDDING PLANNERS & DJS</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>STAGE SIMULATION ENGINE</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white mt-3">
-            Interactive 3D Stage LED Visualizer
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-cinematic text-white mt-3">
+            Real-Time 3D Stage LED Visualizer
           </h2>
           <p class="text-gray-300 text-sm max-w-2xl mt-2">
-            See how Anss Studio’s 4-piece synchronized LED loops look together in real-time. Switch themes to preview how the stage transforms during Varmala, Sangeet, and Royal Entry.
+            Indian wedding stages demand perfectly synchronized LED screens. Test how our 4-screen setup transforms when switching between themes.
           </p>
         </div>
 
         <!-- Stage Theme Switcher Pills -->
-        <div class="flex flex-wrap gap-2">
-          <button onclick="setStageTheme('royal')" id="btnThemeRoyal" class="stage-theme-btn active px-4 py-2 rounded-xl text-xs font-bold border transition bg-amber-500 text-black border-amber-500">
+        <div class="flex flex-wrap gap-2.5">
+          <button onclick="setStageTheme('royal')" id="btnThemeRoyal" class="stage-theme-btn active px-4 py-2.5 rounded-xl text-xs font-bold border transition bg-amber-500 text-black border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
             👑 Royal Varmala Gold
           </button>
-          <button onclick="setStageTheme('neon')" id="btnThemeNeon" class="stage-theme-btn px-4 py-2 rounded-xl text-xs font-bold border transition bg-[#111522] text-gray-300 border-gray-700 hover:border-cyan-400">
-            ⚡ Neon Sangeet Night
+          <button onclick="setStageTheme('neon')" id="btnThemeNeon" class="stage-theme-btn px-4 py-2.5 rounded-xl text-xs font-bold border transition bg-[#111522] text-gray-300 border-gray-700 hover:border-cyan-400">
+            ⚡ Neon Sangeet Concert
           </button>
-          <button onclick="setStageTheme('sufi')" id="btnThemeSufi" class="stage-theme-btn px-4 py-2 rounded-xl text-xs font-bold border transition bg-[#111522] text-gray-300 border-gray-700 hover:border-purple-400">
+          <button onclick="setStageTheme('sufi')" id="btnThemeSufi" class="stage-theme-btn px-4 py-2.5 rounded-xl text-xs font-bold border transition bg-[#111522] text-gray-300 border-gray-700 hover:border-purple-400">
             🌙 Mystical Sufi Night
           </button>
         </div>
       </div>
 
-      <!-- Stage Visualization Container -->
-      <div class="relative rounded-3xl bg-[#06080E] p-6 sm:p-10 border border-cyan-500/30 shadow-2xl overflow-hidden glow-cyan">
+      <!-- Stage Visual Box with Trusses & Spotlights -->
+      <div class="relative rounded-3xl bg-[#04060A] p-6 sm:p-10 border border-cyan-500/30 shadow-[0_0_60px_rgba(6,182,212,0.15)] overflow-hidden">
         
-        <!-- Background Lighting simulation -->
+        <!-- Overhead Spotlights Beams Simulation -->
+        <div class="absolute -top-10 left-1/4 w-32 h-96 spotlight-beam-left opacity-30 pointer-events-none"></div>
+        <div class="absolute -top-10 right-1/4 w-32 h-96 spotlight-beam-right opacity-30 pointer-events-none"></div>
         <div id="stageGlow" class="absolute inset-0 bg-gradient-to-t from-amber-500/15 via-transparent to-transparent pointer-events-none transition-all duration-700"></div>
 
-        <div class="text-center mb-6">
-          <span id="stageThemeTitle" class="text-sm font-bold tracking-widest text-amber-400 uppercase">THEME: 👑 Royal Varmala Palace (Synchronized 4K Master)</span>
+        <div class="text-center mb-8 relative z-10">
+          <span id="stageThemeTitle" class="text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase bg-black/60 px-4 py-1.5 rounded-full border border-amber-500/30">
+            THEME: 👑 Royal Varmala Palace (Synchronized 4K Master)
+          </span>
         </div>
 
-        <!-- The 4 Synchronized Screens Simulation -->
-        <div class="grid grid-cols-12 gap-4 items-end relative z-10">
+        <!-- The 4 Synchronized Screens -->
+        <div class="grid grid-cols-12 gap-3 sm:gap-6 items-end relative z-10 max-w-5xl mx-auto">
           
           <!-- SCREEN 1: LEFT WING -->
-          <div class="col-span-3 sm:col-span-3 flex flex-col items-center">
-            <span class="text-[10px] uppercase font-bold text-cyan-400 mb-1">LED Wing Left</span>
-            <div class="w-full aspect-[9/16] rounded-xl overflow-hidden border-2 border-cyan-400/60 shadow-lg relative bg-black group">
-              <img id="screenLeftImg" src="./assets/led-stage-2.jpg" alt="Left Wing LED" class="w-full h-full object-cover brightness-110 contrast-125 transition-all duration-500">
-              <div class="absolute inset-0 bg-cyan-500/10 mix-blend-overlay"></div>
-              <div class="absolute bottom-2 left-2 text-[9px] bg-black/80 text-white px-2 py-0.5 rounded">1080x1920</div>
+          <div class="col-span-3 flex flex-col items-center">
+            <span class="text-[10px] uppercase font-bold text-cyan-400 mb-1.5 tracking-wider">LEFT WING</span>
+            <div class="w-full aspect-[9/16] rounded-xl overflow-hidden border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(6,182,212,0.3)] relative bg-black group">
+              <img id="screenLeftImg" src="./assets/led-stage-2.jpg" alt="Left Wing LED" class="w-full h-full object-cover brightness-115 contrast-125 transition-all duration-500">
+              <div class="absolute inset-0 bg-cyan-500/15 mix-blend-overlay"></div>
+              <div class="absolute bottom-2 left-2 text-[8px] sm:text-[10px] bg-black/80 text-white px-2 py-0.5 rounded font-mono">1080x1920</div>
             </div>
           </div>
 
-          <!-- SCREEN 2: CENTER MASTER STAGE -->
-          <div class="col-span-6 sm:col-span-6 flex flex-col items-center">
-            <span class="text-[10px] uppercase font-bold text-amber-400 mb-1">LED Center Master Screen</span>
-            <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-2xl relative bg-black group">
-              <img id="screenCenterImg" src="./assets/led-stage-1.jpg" alt="Center Stage LED" class="w-full h-full object-cover brightness-115 contrast-125 transition-all duration-500">
-              <div class="absolute inset-0 bg-amber-500/10 mix-blend-overlay"></div>
-              <div class="absolute bottom-2 left-2 text-[9px] bg-black/80 text-white px-2 py-0.5 rounded font-bold">3840x2160 (4K 60FPS)</div>
+          <!-- SCREEN 2: CENTER MASTER STAGE & SCREEN 4: BASE -->
+          <div class="col-span-6 flex flex-col items-center">
+            <span class="text-[10px] uppercase font-bold text-amber-400 mb-1.5 tracking-wider">CENTER 4K MASTER SCREEN</span>
+            <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-[0_0_35px_rgba(245,158,11,0.5)] relative bg-black group">
+              <img id="screenCenterImg" src="./assets/led-stage-1.jpg" alt="Center Stage LED" class="w-full h-full object-cover brightness-120 contrast-125 transition-all duration-500">
+              <div class="absolute inset-0 bg-amber-500/15 mix-blend-overlay"></div>
+              <div class="absolute bottom-2 left-2 text-[9px] sm:text-[10px] bg-black/80 text-white px-2 py-0.5 rounded font-mono font-bold">3840x2160 (60FPS)</div>
             </div>
 
             <!-- SCREEN 4: BASE / RISER (Under Center) -->
             <div class="w-full mt-3">
-              <span class="text-[10px] uppercase font-bold text-emerald-400 mb-1 block text-center">LED Base Strip</span>
-              <div class="w-full h-12 rounded-lg overflow-hidden border-2 border-emerald-400/60 shadow-md relative bg-black">
+              <span class="text-[9px] uppercase font-bold text-emerald-400 mb-1 block text-center tracking-wider">BASE RISER STRIP</span>
+              <div class="w-full h-10 sm:h-14 rounded-lg overflow-hidden border-2 border-emerald-400/70 shadow-[0_0_15px_rgba(16,185,129,0.3)] relative bg-black">
                 <img id="screenBaseImg" src="./assets/led-stage-4.jpg" alt="LED Base Strip" class="w-full h-full object-cover brightness-120 transition-all duration-500">
-                <div class="absolute inset-0 bg-emerald-500/10 mix-blend-overlay"></div>
-                <div class="absolute bottom-1 right-2 text-[8px] bg-black/80 text-white px-1.5 py-0.5 rounded">3840x480</div>
+                <div class="absolute inset-0 bg-emerald-500/15 mix-blend-overlay"></div>
+                <div class="absolute bottom-1 right-2 text-[8px] bg-black/80 text-white px-1.5 py-0.5 rounded font-mono">3840x480</div>
               </div>
             </div>
           </div>
 
           <!-- SCREEN 3: RIGHT WING -->
-          <div class="col-span-3 sm:col-span-3 flex flex-col items-center">
-            <span class="text-[10px] uppercase font-bold text-cyan-400 mb-1">LED Wing Right</span>
-            <div class="w-full aspect-[9/16] rounded-xl overflow-hidden border-2 border-cyan-400/60 shadow-lg relative bg-black group">
-              <img id="screenRightImg" src="./assets/led-stage-3.jpg" alt="Right Wing LED" class="w-full h-full object-cover brightness-110 contrast-125 transition-all duration-500">
-              <div class="absolute inset-0 bg-cyan-500/10 mix-blend-overlay"></div>
-              <div class="absolute bottom-2 right-2 text-[9px] bg-black/80 text-white px-2 py-0.5 rounded">1080x1920</div>
+          <div class="col-span-3 flex flex-col items-center">
+            <span class="text-[10px] uppercase font-bold text-cyan-400 mb-1.5 tracking-wider">RIGHT WING</span>
+            <div class="w-full aspect-[9/16] rounded-xl overflow-hidden border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(6,182,212,0.3)] relative bg-black group">
+              <img id="screenRightImg" src="./assets/led-stage-3.jpg" alt="Right Wing LED" class="w-full h-full object-cover brightness-115 contrast-125 transition-all duration-500">
+              <div class="absolute inset-0 bg-cyan-500/15 mix-blend-overlay"></div>
+              <div class="absolute bottom-2 right-2 text-[8px] sm:text-[10px] bg-black/80 text-white px-2 py-0.5 rounded font-mono">1080x1920</div>
             </div>
           </div>
 
         </div>
 
-        <!-- Stage Config Info Footer -->
+        <!-- Stage Bottom Reflection Surface -->
+        <div class="h-10 mt-2 bg-gradient-to-b from-white/5 to-transparent blur-sm rounded-full max-w-4xl mx-auto"></div>
+
+        <!-- Stage Actions -->
         <div class="mt-8 pt-6 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4">
           <div class="text-xs text-gray-400">
-            ✨ Seamless loop without cuts • Resolume Arena & Watchout tested • 60 FPS ProRes / H.264
+            ✨ Tested in Resolume Arena, ArKaos & Watchout • Seamless 60-Sec Loops • No Cuts or Glitches
           </div>
           <div class="flex items-center gap-3">
-            <button onclick="addBundleToCart('complete-led-bundle')" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-5 py-2.5 rounded-full text-xs shadow-lg transition flex items-center gap-2">
+            <button onclick="addToCart('complete-led-bundle')" class="bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold px-6 py-2.5 rounded-full text-xs shadow-lg transition flex items-center gap-2">
               <i data-lucide="shopping-cart" class="w-4 h-4"></i>
               <span>Get 4-Screen Full Bundle (₹15,999)</span>
             </button>
-            <a href="https://wa.me/919540642600?text=I%20want%20custom%20LED%20Stage%20Visuals" target="_blank" class="text-xs text-cyan-400 hover:underline">Custom LED Design &rarr;</a>
+            <a href="https://wa.me/919540642600?text=I%20need%20custom%20Stage%20LED%20Visuals" target="_blank" class="text-xs text-cyan-400 hover:underline">Custom LED Design &rarr;</a>
           </div>
         </div>
 
@@ -529,102 +685,96 @@
     </div>
   </section>
 
-  <!-- ================= PROJECT CATALOG (FILTERABLE & SEARCHABLE) ================= -->
+  <!-- ================= PROJECT STORE (FILTERABLE & SEARCHABLE) ================= -->
   <section id="projects" class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Digital Project Store</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white mt-2">
+        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Master Project Catalog</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-cinematic text-white mt-2">
           Ready-To-Edit Wedding Project Packs
         </h2>
         <p class="text-gray-400 text-sm mt-2">
-          Click any project to preview the live timeline. 100% editable titles, songs, transitions, and color grading.
+          Click any card to preview the full master demo. All packs include music, beat markers, color LUTs, and free WhatsApp support.
         </p>
       </div>
 
-      <!-- Filter Tabs Bar -->
-      <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-        <button onclick="filterCategory('all')" class="cat-pill active px-4 py-2 rounded-full text-xs font-bold transition bg-amber-500 text-black" data-cat="all">
-          🌟 All Projects (<span id="countAll">10</span>)
+      <!-- Filter Tabs -->
+      <div class="flex items-center justify-center gap-2.5 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        <button onclick="filterCategory('all')" class="cat-pill active px-5 py-2.5 rounded-full text-xs font-bold transition bg-amber-500 text-black shadow-lg" data-cat="all">
+          🌟 All Projects (10)
         </button>
-        <button onclick="filterCategory('premiere')" class="cat-pill px-4 py-2 rounded-full text-xs font-bold transition bg-[#111522] text-gray-300 hover:text-white hover:bg-gray-800" data-cat="premiere">
+        <button onclick="filterCategory('premiere')" class="cat-pill px-5 py-2.5 rounded-full text-xs font-bold transition bg-[#0C0F1A] text-gray-300 hover:text-white border border-gray-800" data-cat="premiere">
           🟣 Premiere Pro
         </button>
-        <button onclick="filterCategory('after-effects')" class="cat-pill px-4 py-2 rounded-full text-xs font-bold transition bg-[#111522] text-gray-300 hover:text-white hover:bg-gray-800" data-cat="after-effects">
+        <button onclick="filterCategory('after-effects')" class="cat-pill px-5 py-2.5 rounded-full text-xs font-bold transition bg-[#0C0F1A] text-gray-300 hover:text-white border border-gray-800" data-cat="after-effects">
           🔵 After Effects
         </button>
-        <button onclick="filterCategory('edius')" class="cat-pill px-4 py-2 rounded-full text-xs font-bold transition bg-[#111522] text-gray-300 hover:text-white hover:bg-gray-800" data-cat="edius">
+        <button onclick="filterCategory('edius')" class="cat-pill px-5 py-2.5 rounded-full text-xs font-bold transition bg-[#0C0F1A] text-gray-300 hover:text-white border border-gray-800" data-cat="edius">
           🟢 Edius Pro
         </button>
-        <button onclick="filterCategory('fcp')" class="cat-pill px-4 py-2 rounded-full text-xs font-bold transition bg-[#111522] text-gray-300 hover:text-white hover:bg-gray-800" data-cat="fcp">
+        <button onclick="filterCategory('fcp')" class="cat-pill px-5 py-2.5 rounded-full text-xs font-bold transition bg-[#0C0F1A] text-gray-300 hover:text-white border border-gray-800" data-cat="fcp">
           🍎 Final Cut Pro
         </button>
-        <button onclick="filterCategory('led')" class="cat-pill px-4 py-2 rounded-full text-xs font-bold transition bg-[#111522] text-gray-300 hover:text-white hover:bg-gray-800" data-cat="led">
+        <button onclick="filterCategory('led')" class="cat-pill px-5 py-2.5 rounded-full text-xs font-bold transition bg-[#0C0F1A] text-gray-300 hover:text-white border border-gray-800" data-cat="led">
           🎆 LED Visuals
         </button>
       </div>
 
       <!-- Project Cards Grid -->
       <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Javascript dynamically populates or updates cards -->
+        <!-- Rendered by app.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- ================= WHY ANSS STUDIO (COMPARISON) ================= -->
-  <section id="why-us" class="py-20 relative bg-[#090C14] border-t border-gray-800/80">
+  <!-- ================= WHY ANSS STUDIO ================= -->
+  <section id="why-us" class="py-20 relative bg-[#06080E] border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Built For Professionals</span>
-        <h2 class="text-3xl font-extrabold font-display text-white mt-2">Why 500+ Studios Rely On Anss Studio</h2>
-        <p class="text-gray-400 text-sm mt-2">Stop spending 2 weeks on manual timelines. Deliver client wedding videos within 24 hours.</p>
+        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Why Professionals Switch</span>
+        <h2 class="text-3xl font-extrabold font-cinematic text-white mt-2">Engineered For Zero Editing Stress</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
         <div class="glass-card rounded-2xl p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center">
             <i data-lucide="zap" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-white">Save 80% Editing Time</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Drag and drop your raw couple footage into our pre-synced beat markers and master sequences. Render out royal teasers in minutes.
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Drag and drop your raw couple footage into pre-synced beat markers and master sequences. Export finished 4K teasers in minutes.
           </p>
         </div>
 
-        <!-- Feature 2 -->
         <div class="glass-card rounded-2xl p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center">
             <i data-lucide="box" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-white">Zero Missing Plugins</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Never face "Missing Effect / Offline Media" errors. Our templates use native software tools or include 100% royalty-free presets.
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Never face red "Media Offline" or missing transition error screens. Built with 100% native effects & pre-rendered elements.
           </p>
         </div>
 
-        <!-- Feature 3 -->
         <div class="glass-card rounded-2xl p-8 space-y-4">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
             <i data-lucide="headphones" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-white">Direct WhatsApp Support</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Stuck with a setting or rendering error? Our senior Delhi editing engineers are available on WhatsApp and AnyDesk to assist you live.
+          <h3 class="text-xl font-bold text-white">Direct WhatsApp & AnyDesk Help</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Stuck with a setting or export error? Our senior Delhi editors will connect over AnyDesk and fix it for you live.
           </p>
         </div>
       </div>
 
       <!-- Testimonials -->
-      <div class="mt-20 pt-16 border-t border-gray-800">
-        <h3 class="text-center font-bold text-xl text-white mb-8">What Indian Wedding Editors Say</h3>
+      <div class="mt-20 pt-14 border-t border-gray-800">
+        <h3 class="text-center font-bold text-xl text-white mb-8 font-cinematic">Verified Studio Owner Reviews</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div class="bg-[#111522] p-6 rounded-2xl border border-gray-800">
+          <div class="bg-[#0C0F1A] p-6 rounded-2xl border border-gray-800">
             <div class="flex text-amber-400 mb-3">★★★★★</div>
             <p class="text-xs text-gray-300 italic mb-4">"Edius 11 ka Master project bohot hi shandar hai. Haldi aur Varmala ke gaane perfect sync hain. Client ko teaser diya to wo khush ho gaye!"</p>
             <div class="flex items-center gap-3">
@@ -636,7 +786,7 @@
             </div>
           </div>
 
-          <div class="bg-[#111522] p-6 rounded-2xl border border-gray-800">
+          <div class="bg-[#0C0F1A] p-6 rounded-2xl border border-gray-800">
             <div class="flex text-amber-400 mb-3">★★★★★</div>
             <p class="text-xs text-gray-300 italic mb-4">"Stage LED Visuals ke liye Anss Studio best hai. Center screen aur dono wings ekdum smooth match karte hain stage par. Superb quality!"</p>
             <div class="flex items-center gap-3">
@@ -648,7 +798,7 @@
             </div>
           </div>
 
-          <div class="bg-[#111522] p-6 rounded-2xl border border-gray-800">
+          <div class="bg-[#0C0F1A] p-6 rounded-2xl border border-gray-800">
             <div class="flex text-amber-400 mb-3">★★★★★</div>
             <p class="text-xs text-gray-300 italic mb-4">"Premiere Pro project ki color grading aur LUTs bohot natural aur cinematic hain. Instant Google Drive download mil gaya tha payment ke baad."</p>
             <div class="flex items-center gap-3">
@@ -659,29 +809,27 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= DELHI STUDIO LOCATION & CONTACT ================= -->
+  <!-- ================= DELHI STUDIO CONTACT ================= -->
   <section id="contact" class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
-        <!-- Left: Studio Details & Visit -->
         <div class="lg:col-span-5 space-y-6">
           <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Visit Our Head Office</span>
-          <h2 class="text-3xl font-extrabold font-display text-white">Anss Studio Pvt. Ltd.</h2>
+          <h2 class="text-3xl font-extrabold font-cinematic text-white">Anss Studio Pvt. Ltd.</h2>
           <p class="text-sm text-gray-300 leading-relaxed">
-            Feel free to visit our studio in Delhi for project demos, custom wedding editing consultations, or hard-drive data transfer.
+            Visit our studio in Delhi for live project previews, customized video timelines, and hard-drive data transfers.
           </p>
 
           <div class="space-y-4 pt-2">
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#111522] border border-gray-800">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#0C0F1A] border border-gray-800">
               <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
               </div>
@@ -691,7 +839,7 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#111522] border border-gray-800">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#0C0F1A] border border-gray-800">
               <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
@@ -704,19 +852,7 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#111522] border border-gray-800">
-              <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
-                <i data-lucide="mail" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="text-sm font-bold text-white">Email Support</h4>
-                <p class="text-xs text-gray-400 mt-0.5">
-                  <a href="mailto:support@anssstudio.com" class="hover:text-amber-400">support@anssstudio.com</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#111522] border border-gray-800">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#0C0F1A] border border-gray-800">
               <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
                 <i data-lucide="clock" class="w-5 h-5"></i>
               </div>
@@ -728,47 +864,44 @@
           </div>
         </div>
 
-        <!-- Right: Instant Enquiry Form -->
         <div class="lg:col-span-7">
           <div class="glass-card rounded-3xl p-8 border border-white/10 shadow-2xl">
-            <h3 class="text-xl font-bold text-white mb-2">Send Direct Studio Enquiry</h3>
-            <p class="text-xs text-gray-400 mb-6">Need a custom wedding song project, full hard drive pack, or bulk studio licence?</p>
+            <h3 class="text-xl font-bold text-white mb-2 font-cinematic">Direct WhatsApp Enquiry</h3>
+            <p class="text-xs text-gray-400 mb-6">Need a custom hard-drive delivery or wedding master pack?</p>
 
             <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-gray-300 mb-1">Your Full Name *</label>
-                  <input type="text" id="formName" required placeholder="e.g. Rahul Sharma" class="w-full bg-[#0A0D15] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                  <input type="text" id="formName" required placeholder="e.g. Rahul Sharma" class="w-full bg-[#05070B] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp / Phone Number *</label>
-                  <input type="tel" id="formPhone" required placeholder="e.g. +91 9876543210" class="w-full bg-[#0A0D15] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                  <label class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp Number *</label>
+                  <input type="tel" id="formPhone" required placeholder="e.g. +91 9876543210" class="w-full bg-[#05070B] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
                 </div>
               </div>
 
               <div>
-                <label class="block text-xs font-semibold text-gray-300 mb-1">Editing Software You Use</label>
-                <select id="formSoftware" class="w-full bg-[#0A0D15] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                <label class="block text-xs font-semibold text-gray-300 mb-1">Your Video Editing Software</label>
+                <select id="formSoftware" class="w-full bg-[#05070B] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
                   <option value="Edius">Edius Pro (9 / 10 / 11)</option>
                   <option value="Premiere">Adobe Premiere Pro</option>
                   <option value="AfterEffects">Adobe After Effects</option>
                   <option value="FCP">Final Cut Pro (Apple)</option>
                   <option value="LED">Stage LED Visuals</option>
-                  <option value="All">All In One / Multiple</option>
+                  <option value="All">All In One Bundle</option>
                 </select>
               </div>
 
               <div>
-                <label class="block text-xs font-semibold text-gray-300 mb-1">Requirement / Message</label>
-                <textarea id="formMessage" rows="3" placeholder="Tell us what project or video pack you are looking for..." class="w-full bg-[#0A0D15] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
+                <label class="block text-xs font-semibold text-gray-300 mb-1">Requirement / Details</label>
+                <textarea id="formMessage" rows="3" placeholder="Tell us which project pack or song sequence you need..." class="w-full bg-[#05070B] border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
               </div>
 
-              <button type="submit" class="w-full gold-btn-gradient text-black font-bold py-3.5 rounded-xl text-sm transition hover:scale-[1.01] flex items-center justify-center gap-2">
+              <button type="submit" class="w-full gold-btn text-black font-extrabold py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2 uppercase tracking-wider">
                 <i data-lucide="send" class="w-4 h-4 fill-black"></i>
-                <span>Submit Enquiry to WhatsApp</span>
+                <span>Send Enquiry to WhatsApp</span>
               </button>
-
-              <p class="text-[11px] text-gray-500 text-center">We usually respond within 15 minutes during studio hours.</p>
             </form>
           </div>
         </div>
@@ -779,104 +912,67 @@
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-gray-800 bg-[#05070C] pt-14 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="./assets/logo.png" alt="Anss Studio" class="w-10 h-10 object-contain">
-            <span class="text-lg font-bold font-display tracking-wider text-white">ANSS <span class="text-amber-500">STUDIO</span></span>
-          </div>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            India's foremost wedding project and LED stage motion studio. Supplying high-quality 4K digital assets to editors across the globe.
-          </p>
-          <div class="text-xs text-gray-400">
-            Delhi Office: B-146 West Vinod Nagar, Delhi-110092
-          </div>
-        </div>
-
+  <footer class="border-t border-gray-800 bg-[#040508] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="./assets/logo.png" alt="Anss Studio" class="w-10 h-10 object-contain">
         <div>
-          <h4 class="text-sm font-bold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2 text-xs text-gray-400">
-            <li><a href="#projects" class="hover:text-amber-400 transition">Premiere Pro Templates</a></li>
-            <li><a href="#projects" class="hover:text-amber-400 transition">Edius Song Mixing Packs</a></li>
-            <li><a href="#projects" class="hover:text-amber-400 transition">After Effects 3D Invitations</a></li>
-            <li><a href="#led-visualizer" class="hover:text-amber-400 transition">LED Stage Visuals (Wings & Center)</a></li>
-            <li><a href="#why-us" class="hover:text-amber-400 transition">Client Reviews</a></li>
-          </ul>
+          <span class="text-base font-bold font-cinematic text-white">ANSS <span class="text-amber-500">STUDIO</span></span>
+          <span class="text-[10px] text-gray-500 block">© 2026 Anss Studio Pvt. Ltd. All rights reserved.</span>
         </div>
-
-        <div>
-          <h4 class="text-sm font-bold text-white mb-4">Support & Policy</h4>
-          <ul class="space-y-2 text-xs text-gray-400">
-            <li><a href="https://wa.me/919540642600" target="_blank" class="hover:text-amber-400 transition">AnyDesk Remote Setup Help</a></li>
-            <li><a href="https://wa.me/919540642600" target="_blank" class="hover:text-amber-400 transition">Hard Drive Courier Service</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition">Terms & Licence Agreement</a></li>
-            <li><a href="#" class="hover:text-amber-400 transition">Refund & Digital Replacement</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold text-white mb-4">Get Instant Updates</h4>
-          <p class="text-xs text-gray-400 mb-3">Join our broadcast for newly released wedding project packs.</p>
-          <a href="https://wa.me/919540642600?text=Please%20add%20me%20to%20Anss%20Studio%20VIP%20Broadcast" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-[#128C7E] hover:bg-[#128C7E]/80 text-white text-xs font-semibold py-2.5 rounded-xl transition">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Join WhatsApp VIP Broadcast</span>
-          </a>
-        </div>
-
       </div>
-
-      <div class="border-t border-gray-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-        <div>&copy; 2026 Anss Studio Pvt. Ltd. All rights reserved. Made with excellence in Delhi.</div>
-        <div class="flex items-center gap-4">
-          <a href="https://www.anssstudio.com" target="_blank" class="hover:text-gray-400">Official Portal</a>
-          <span>•</span>
-          <a href="https://github.com/ajaynxt" target="_blank" class="hover:text-gray-400">GitHub Verified</a>
-        </div>
+      <div class="flex items-center gap-6 text-xs text-gray-400">
+        <a href="https://www.anssstudio.com" target="_blank" class="hover:text-amber-400">Official Portal</a>
+        <a href="https://github.com/ajaynxt/anss-studio" target="_blank" class="hover:text-amber-400">GitHub Source</a>
+        <a href="https://wa.me/919540642600" target="_blank" class="hover:text-emerald-400">+91 9540642600</a>
       </div>
     </div>
   </footer>
 
+  <!-- ================= LIVE NOTIFICATION TOAST POPUP ================= -->
+  <div id="liveSalesToast" class="fixed bottom-6 left-6 z-50 transform -translate-x-full transition-transform duration-500 bg-[#0E121E] border border-amber-500/40 rounded-2xl p-3.5 shadow-2xl flex items-center gap-3 max-w-sm pointer-events-auto">
+    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+      <i data-lucide="check-circle" class="w-5 h-5 text-amber-400"></i>
+    </div>
+    <div class="flex-1">
+      <div class="text-[11px] font-bold text-white" id="toastTitle">Rahul from Jaipur</div>
+      <div class="text-[10px] text-gray-400" id="toastDesc">Just downloaded Edius Master Pack</div>
+    </div>
+    <button onclick="hideToast()" class="text-gray-500 hover:text-white p-1">
+      <i data-lucide="x" class="w-3.5 h-3.5"></i>
+    </button>
+  </div>
+
   <!-- ================= VIDEO DEMO MODAL ================= -->
   <div id="videoModal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
-    <div class="relative w-full max-w-4xl bg-[#0F1320] border border-amber-500/30 rounded-2xl overflow-hidden shadow-2xl">
-      <!-- Modal Header -->
+    <div class="relative w-full max-w-4xl bg-[#0C0F1A] border border-amber-500/40 rounded-2xl overflow-hidden shadow-2xl">
       <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
         <h4 id="videoModalTitle" class="text-sm font-bold text-white flex items-center gap-2">
           <i data-lucide="play" class="w-4 h-4 text-amber-500"></i>
           <span>Project Video Preview</span>
         </h4>
-        <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white p-1 rounded-lg">
+        <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Iframe Video Container -->
       <div class="aspect-video w-full bg-black">
         <iframe id="videoIframe" class="w-full h-full" src="" title="Video Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
-      <!-- Modal Footer -->
-      <div class="p-4 bg-[#0A0D15] flex items-center justify-between">
-        <span class="text-xs text-gray-400">Ready to use • Instant Download Available</span>
-        <button id="modalOrderBtn" onclick="orderCurrentModalItem()" class="gold-btn-gradient text-black font-bold px-5 py-2 rounded-full text-xs">
+      <div class="p-4 bg-[#080B14] flex items-center justify-between">
+        <span class="text-xs text-gray-400">High Quality 4K Master • Instant Google Drive Access</span>
+        <button onclick="orderCurrentModalItem()" class="gold-btn text-black font-extrabold px-5 py-2 rounded-full text-xs">
           Order This Project on WhatsApp
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ================= SLIDE-OUT CART DRAWER ================= -->
+  <!-- ================= CART DRAWER ================= -->
   <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
-    <!-- Backdrop -->
-    <div id="cartBackdrop" onclick="closeCart()" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-
-    <!-- Drawer Panel -->
-    <div id="cartPanel" class="absolute top-0 right-0 w-full max-w-md h-full bg-[#0D101A] border-l border-gray-800 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 pointer-events-auto">
-      
-      <!-- Drawer Header -->
+    <div id="cartBackdrop" onclick="closeCart()" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+    <div id="cartPanel" class="absolute top-0 right-0 w-full max-w-md h-full bg-[#0A0D16] border-l border-gray-800 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 pointer-events-auto">
       <div class="p-6 border-b border-gray-800 flex items-center justify-between">
         <div class="flex items-center gap-2">
           <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-500"></i>
@@ -887,34 +983,24 @@
         </button>
       </div>
 
-      <!-- Cart Items List -->
       <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
-        <!-- Javascript dynamically inserts items -->
-        <div id="emptyCartMessage" class="text-center py-12 text-gray-400 text-sm">
-          <i data-lucide="folder-x" class="w-12 h-12 text-gray-600 mx-auto mb-3"></i>
-          Your cart is currently empty.
-        </div>
+        <!-- Rendered by JS -->
       </div>
 
-      <!-- Cart Drawer Footer -->
-      <div class="p-6 border-t border-gray-800 bg-[#090C14] space-y-4">
+      <div class="p-6 border-t border-gray-800 bg-[#06080F] space-y-4">
         <div class="flex items-center justify-between text-sm">
           <span class="text-gray-400">Total Price:</span>
           <span id="cartTotalPrice" class="text-xl font-bold text-amber-400">₹0</span>
         </div>
-        <button onclick="checkoutViaWhatsApp()" class="w-full gold-btn-gradient text-black font-bold py-3.5 rounded-xl text-sm transition hover:scale-[1.01] flex items-center justify-center gap-2">
+        <button onclick="checkoutViaWhatsApp()" class="w-full gold-btn text-black font-extrabold py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
           <i data-lucide="message-circle" class="w-4 h-4 fill-black"></i>
           <span>Checkout via WhatsApp</span>
         </button>
-        <div class="text-[10px] text-gray-400 text-center">
-          Payment via UPI / Netbanking • Instant Google Drive Link Given
-        </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Main JavaScript Logic -->
+  <!-- Main JS -->
   <script src="./app.js"></script>
 
 </body>

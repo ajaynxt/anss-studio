@@ -1,13 +1,13 @@
-// Anss Studio - Modern Interactive Application Logic
+// Anss Studio - Luxury Interactive Experience Engine
 
-// 1. PROJECT DATA CATALOG
+// ================= 1. PROJECT DATA CATALOG =================
 const projectsData = [
   {
     id: 'edius-master-2026',
     title: 'Edius 11 Royal Wedding Master Project',
     category: 'edius',
     badge: 'Edius Pro',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
     image: './assets/edius-project.jpg',
     resolution: '4K / 60FPS',
     audio: 'Pre-synced Bollywood & Sufi',
@@ -21,9 +21,9 @@ const projectsData = [
     title: 'Premiere Pro 4K Cinematic Teaser Pack',
     category: 'premiere',
     badge: 'Premiere Pro',
-    badgeColor: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+    badgeColor: 'bg-purple-500/20 text-purple-400 border-purple-500/40',
     image: './assets/premiere-project.jpg',
-    resolution: '4K UHD',
+    resolution: '4K UHD HDR',
     audio: 'Beat Marker Guided',
     price: 5999,
     originalPrice: 8500,
@@ -35,10 +35,10 @@ const projectsData = [
     title: 'After Effects 3D Royal Palace Wedding Invite',
     category: 'after-effects',
     badge: 'After Effects',
-    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/40',
     image: './assets/after-effects-project.jpg',
     resolution: '3840x2160',
-    audio: 'Orchestral Royalty Free',
+    audio: 'Royal Shehnai & Strings',
     price: 5999,
     originalPrice: 7999,
     description: 'Luxurious gold ornament flourishes, 3D palace gates opening, golden foil text reveal. Easily change bride & groom names.',
@@ -49,7 +49,7 @@ const projectsData = [
     title: 'Final Cut Pro (FCPX) Wedding Storyteller Suite',
     category: 'fcp',
     badge: 'Final Cut Pro',
-    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/40',
     image: './assets/fcp-project.jpg',
     resolution: 'Apple ProRes 422',
     audio: 'Multi-Track Audio Sync',
@@ -63,7 +63,7 @@ const projectsData = [
     title: 'LED Stage Center - Royal Grand Varmala (4K)',
     category: 'led',
     badge: 'LED Center',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40',
     image: './assets/led-stage-1.jpg',
     resolution: '3840x2160 (60FPS)',
     audio: 'Visual Loop',
@@ -77,7 +77,7 @@ const projectsData = [
     title: 'LED Stage Wings (Left & Right Synchronized Pair)',
     category: 'led',
     badge: 'LED Wings',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+    badgeColor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40',
     image: './assets/led-stage-2.jpg',
     resolution: '1080x1920 (Pair)',
     audio: 'Visual Loop',
@@ -91,7 +91,7 @@ const projectsData = [
     title: 'LED Stage Base Strip & Floor Riser Visuals',
     category: 'led',
     badge: 'LED Base',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
     image: './assets/led-stage-4.jpg',
     resolution: '3840x480 Ultra-Wide',
     audio: 'Visual Loop',
@@ -105,7 +105,7 @@ const projectsData = [
     title: 'Complete 4-Piece Grand Stage LED Visual Bundle',
     category: 'led',
     badge: '4-Screen Bundle',
-    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/30 font-bold',
+    badgeColor: 'bg-amber-500/20 text-amber-400 border-amber-500/40 font-bold',
     image: './assets/led-stage-3.jpg',
     resolution: 'Full 4-Screen Sync',
     audio: 'Timecode Sync Ready',
@@ -119,7 +119,7 @@ const projectsData = [
     title: 'Edius Haldi & Sangeet Beat-Sync Song Mixing',
     category: 'edius',
     badge: 'Edius Pro',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
     image: './assets/edius-project.jpg',
     resolution: '1080p / 4K Ready',
     audio: '20+ Hit Songs Pre-Cut',
@@ -133,7 +133,7 @@ const projectsData = [
     title: 'After Effects 9:16 Instagram Reels Wedding Pack',
     category: 'after-effects',
     badge: 'After Effects',
-    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    badgeColor: 'bg-blue-500/20 text-blue-400 border-blue-500/40',
     image: './assets/after-effects-project.jpg',
     resolution: '1080x1920 Vertical',
     audio: 'Trending Audio Cut',
@@ -144,14 +144,19 @@ const projectsData = [
   }
 ];
 
-// 2. APP STATE
+// App State
 let currentFilter = 'all';
 let currentSearch = '';
 let cart = [];
 let currentModalItemTitle = '';
+let isAudioActive = true;
 
-// 3. INITIALIZE ON DOM LOAD
+// ================= 2. INITIALIZATION =================
 document.addEventListener('DOMContentLoaded', () => {
+  initParticlesCanvas();
+  initMouseSpotlight();
+  initBeforeAfterSlider();
+  initLiveSalesToasts();
   renderProjects();
   setupEventListeners();
   if (window.lucide) {
@@ -159,7 +164,155 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// 4. RENDER PROJECTS FUNCTION
+// ================= 3. FLOATING STARDUST PARTICLES CANVAS =================
+function initParticlesCanvas() {
+  const canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const particles = [];
+  const particleCount = 45;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 2 + 0.8,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: -Math.random() * 0.5 - 0.2,
+      opacity: Math.random() * 0.6 + 0.2,
+      color: Math.random() > 0.4 ? '245, 158, 11' : '139, 92, 246'
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if (p.y < 0) p.y = height;
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = `rgba(${p.color}, 0.8)`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// ================= 4. MOUSE SPOTLIGHT ENGINE =================
+function initMouseSpotlight() {
+  window.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+  });
+}
+
+// ================= 5. BEFORE / AFTER COLOR GRADE SLIDER =================
+function initBeforeAfterSlider() {
+  const wrapper = document.getElementById('sliderWrapper');
+  const beforeContainer = document.getElementById('beforeImageContainer');
+  const handle = document.getElementById('sliderHandle');
+  if (!wrapper || !beforeContainer || !handle) return;
+
+  let isDragging = false;
+
+  function updateSlider(clientX) {
+    const rect = wrapper.getBoundingClientRect();
+    let x = clientX - rect.left;
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
+
+    const percentage = (x / rect.width) * 100;
+    beforeContainer.style.width = `${percentage}%`;
+    handle.style.left = `${percentage}%`;
+  }
+
+  wrapper.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    updateSlider(e.clientX);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    updateSlider(e.clientX);
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Touch Support
+  wrapper.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    updateSlider(e.touches[0].clientX);
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    updateSlider(e.touches[0].clientX);
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+}
+
+// ================= 6. LIVE SALES NOTIFICATION TOASTS =================
+function initLiveSalesToasts() {
+  const toast = document.getElementById('liveSalesToast');
+  const title = document.getElementById('toastTitle');
+  const desc = document.getElementById('toastDesc');
+  if (!toast) return;
+
+  const realPurchases = [
+    { name: 'Rohit K. from Delhi', item: 'Downloaded Edius 11 Master Timeline' },
+    { name: 'Vivaah Studio, Jaipur', item: 'Purchased 4-Screen LED Stage Visuals' },
+    { name: 'Amitabh from Lucknow', item: 'Unlocked Premiere Pro Cinematic Teaser' },
+    { name: 'CineCraft Studio, Chandigarh', item: 'Downloaded Royal Palace 3D Invitation' },
+    { name: 'Vikas P. from Ahmedabad', item: 'Ordered FCPX Wedding Storyteller Suite' }
+  ];
+
+  let index = 0;
+  function showNextToast() {
+    const cur = realPurchases[index % realPurchases.length];
+    title.textContent = cur.name;
+    desc.textContent = cur.item;
+    toast.classList.remove('-translate-x-full');
+
+    setTimeout(() => {
+      toast.classList.add('-translate-x-full');
+    }, 5500);
+
+    index++;
+  }
+
+  // First toast after 4s, then every 16s
+  setTimeout(showNextToast, 4000);
+  setInterval(showNextToast, 16000);
+}
+
+function hideToast() {
+  const toast = document.getElementById('liveSalesToast');
+  if (toast) toast.classList.add('-translate-x-full');
+}
+
+// ================= 7. RENDER PROJECT CARDS =================
 function renderProjects() {
   const container = document.getElementById('projectsGrid');
   if (!container) return;
@@ -201,15 +354,15 @@ function renderProjects() {
 
         <!-- Resolution Tag -->
         <div class="absolute top-3 right-3">
-          <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-black/70 text-gray-300 border border-white/10">
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-black/80 text-gray-300 border border-white/10">
             ${item.resolution}
           </span>
         </div>
 
         <!-- Hover Overlay with Play Button -->
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <div class="w-12 h-12 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition">
-            <i data-lucide="play" class="w-5 h-5 fill-black ml-0.5"></i>
+        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-amber-500 text-black flex items-center justify-center shadow-[0_0_20px_#F59E0B] transform scale-90 group-hover:scale-100 transition duration-300">
+            <i data-lucide="play" class="w-6 h-6 fill-black ml-0.5"></i>
           </div>
         </div>
       </div>
@@ -233,7 +386,7 @@ function renderProjects() {
         <!-- Pricing & Action Buttons -->
         <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between gap-2">
           <div>
-            <div class="text-lg font-extrabold text-amber-400">₹${item.price.toLocaleString('en-IN')}</div>
+            <div class="text-lg font-black text-amber-400">₹${item.price.toLocaleString('en-IN')}</div>
             <div class="text-[10px] text-gray-500 line-through">₹${item.originalPrice.toLocaleString('en-IN')}</div>
           </div>
 
@@ -243,7 +396,7 @@ function renderProjects() {
               <span class="hidden sm:inline">Demo</span>
             </button>
             
-            <button onclick="addToCart('${item.id}')" class="gold-btn-gradient text-black font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-md">
+            <button onclick="addToCart('${item.id}')" class="gold-btn text-black font-extrabold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-md">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
               <span>Add to Cart</span>
             </button>
@@ -260,25 +413,24 @@ function renderProjects() {
   }
 }
 
-// 5. CATEGORY FILTER
+// ================= 8. CATEGORY FILTER =================
 function filterCategory(category) {
   currentFilter = category;
   
-  // Update Active Pill Styles
   document.querySelectorAll('.cat-pill').forEach(pill => {
     if (pill.getAttribute('data-cat') === category) {
-      pill.classList.remove('bg-[#111522]', 'text-gray-300');
-      pill.classList.add('bg-amber-500', 'text-black', 'active');
+      pill.classList.remove('bg-[#0C0F1A]', 'text-gray-300', 'border');
+      pill.classList.add('bg-amber-500', 'text-black', 'shadow-lg');
     } else {
-      pill.classList.add('bg-[#111522]', 'text-gray-300');
-      pill.classList.remove('bg-amber-500', 'text-black', 'active');
+      pill.classList.add('bg-[#0C0F1A]', 'text-gray-300', 'border');
+      pill.classList.remove('bg-amber-500', 'text-black', 'shadow-lg');
     }
   });
 
   renderProjects();
 }
 
-// 6. STAGE LED VISUALIZER THEME SWITCHER
+// ================= 9. STAGE THEME SWITCHER =================
 function setStageTheme(theme) {
   const left = document.getElementById('screenLeftImg');
   const center = document.getElementById('screenCenterImg');
@@ -287,14 +439,13 @@ function setStageTheme(theme) {
   const title = document.getElementById('stageThemeTitle');
   const glow = document.getElementById('stageGlow');
 
-  // Reset Button Styles
   document.querySelectorAll('.stage-theme-btn').forEach(btn => {
-    btn.classList.remove('bg-amber-500', 'text-black', 'border-amber-500', 'bg-cyan-500', 'bg-purple-500');
+    btn.classList.remove('bg-amber-500', 'text-black', 'border-amber-500', 'bg-cyan-500', 'bg-purple-500', 'shadow-[0_0_15px_rgba(245,158,11,0.4)]');
     btn.classList.add('bg-[#111522]', 'text-gray-300', 'border-gray-700');
   });
 
   if (theme === 'royal') {
-    document.getElementById('btnThemeRoyal').classList.add('bg-amber-500', 'text-black', 'border-amber-500');
+    document.getElementById('btnThemeRoyal').classList.add('bg-amber-500', 'text-black', 'border-amber-500', 'shadow-[0_0_15px_rgba(245,158,11,0.4)]');
     document.getElementById('btnThemeRoyal').classList.remove('bg-[#111522]', 'text-gray-300');
     left.src = './assets/led-stage-2.jpg';
     center.src = './assets/led-stage-1.jpg';
@@ -309,7 +460,7 @@ function setStageTheme(theme) {
     center.src = './assets/led-stage-2.jpg';
     right.src = './assets/led-stage-1.jpg';
     base.src = './assets/led-stage-4.jpg';
-    title.textContent = 'THEME: ⚡ Neon Sangeet Night (Dynamic Laser Visuals)';
+    title.textContent = 'THEME: ⚡ Neon Sangeet Concert (Dynamic Laser Visuals)';
     glow.className = 'absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-transparent pointer-events-none transition-all duration-700';
   } else if (theme === 'sufi') {
     document.getElementById('btnThemeSufi').classList.add('bg-purple-500', 'text-white', 'border-purple-500');
@@ -323,7 +474,7 @@ function setStageTheme(theme) {
   }
 }
 
-// 7. VIDEO PREVIEW MODAL
+// ================= 10. VIDEO MODAL =================
 function openVideoModal(url, title) {
   const modal = document.getElementById('videoModal');
   const iframe = document.getElementById('videoIframe');
@@ -344,11 +495,11 @@ function closeVideoModal() {
 }
 
 function orderCurrentModalItem() {
-  const text = encodeURIComponent(`Hello Anss Studio, I saw the preview of "${currentModalItemTitle}" on your website and I want to order this project pack.`);
+  const text = encodeURIComponent(`Hello Anss Studio, I previewed "${currentModalItemTitle}" on your website and I want to order this project pack.`);
   window.open(`https://wa.me/919540642600?text=${text}`, '_blank');
 }
 
-// 8. CART MANAGEMENT
+// ================= 11. CART MANAGEMENT =================
 function addToCart(projectId) {
   const item = projectsData.find(p => p.id === projectId);
   if (!item) return;
@@ -362,10 +513,6 @@ function addToCart(projectId) {
 
   updateCartUI();
   openCart();
-}
-
-function addBundleToCart(bundleId) {
-  addToCart(bundleId);
 }
 
 function removeFromCart(projectId) {
@@ -397,7 +544,7 @@ function updateCartUI() {
   container.innerHTML = cart.map(item => {
     totalAmount += item.price * item.quantity;
     return `
-      <div class="p-3 rounded-xl bg-[#131726] border border-gray-800 flex items-center justify-between gap-3">
+      <div class="p-3 rounded-xl bg-[#111524] border border-gray-800 flex items-center justify-between gap-3">
         <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover shrink-0">
         <div class="flex-1 min-w-0">
           <h4 class="text-xs font-bold text-white truncate">${item.title}</h4>
@@ -449,13 +596,29 @@ function checkoutViaWhatsApp() {
     message += `${index + 1}. ${item.title} - ₹${item.price.toLocaleString('en-IN')}\n`;
     total += item.price * item.quantity;
   });
-  message += `\n*Total Amount:* ₹${total.toLocaleString('en-IN')}\n\n*Please send me UPI payment details and Google Drive Download link.*`;
+  message += `\n*Total Amount:* ₹${total.toLocaleString('en-IN')}\n\n*Please share UPI QR code and Google Drive Download link.*`;
 
   const waUrl = `https://wa.me/919540642600?text=${encodeURIComponent(message)}`;
   window.open(waUrl, '_blank');
 }
 
-// 9. CONTACT FORM SUBMISSION
+// ================= 12. SOUND EQUALIZER TOGGLE =================
+function toggleAudioFx() {
+  isAudioActive = !isAudioActive;
+  const bars = document.querySelectorAll('.eq-bar');
+  const text = document.getElementById('audioText');
+
+  bars.forEach(b => {
+    b.style.animationPlayState = isAudioActive ? 'running' : 'paused';
+  });
+
+  if (text) {
+    text.textContent = isAudioActive ? 'Audio: Live' : 'Audio: Muted';
+    text.className = isAudioActive ? 'text-[11px] text-amber-400 font-bold' : 'text-[11px] text-gray-500 font-bold';
+  }
+}
+
+// ================= 13. CONTACT FORM =================
 function handleContactSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('formName').value.trim();
@@ -467,9 +630,8 @@ function handleContactSubmit(e) {
   window.open(`https://wa.me/919540642600?text=${encodeURIComponent(waText)}`, '_blank');
 }
 
-// 10. SETUP EVENT LISTENERS
+// ================= 14. EVENT LISTENERS =================
 function setupEventListeners() {
-  // Search Input Listener
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -486,13 +648,11 @@ function setupEventListeners() {
     });
   }
 
-  // Cart Drawer open button
   const cartBtn = document.getElementById('openCartBtn');
   if (cartBtn) {
     cartBtn.addEventListener('click', openCart);
   }
 
-  // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   if (mobileMenuBtn && mobileMenu) {
