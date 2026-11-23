@@ -1,6 +1,6 @@
 // Anss Studio - Bright & Luxury Studio Experience Engine
 
-// ================= 1. PROJECT DATA CATALOG =================
+// ================= 1. PROJECT DATA CATALOG WITH REAL HIGH-RES WEDDING PHOTOS =================
 const projectsData = [
   {
     id: 'edius-master-2026',
@@ -8,7 +8,7 @@ const projectsData = [
     category: 'edius',
     badge: 'Edius Pro',
     badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    image: './assets/edius-project.jpg',
+    image: './assets/slider-couple-graded.jpg',
     resolution: '4K / 60FPS',
     audio: 'Pre-synced Bollywood & Sufi',
     price: 11500,
@@ -22,7 +22,7 @@ const projectsData = [
     category: 'premiere',
     badge: 'Premiere Pro',
     badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-    image: './assets/premiere-project.jpg',
+    image: './assets/wedding-bride.jpg',
     resolution: '4K UHD HDR',
     audio: 'Beat Marker Guided',
     price: 5999,
@@ -50,7 +50,7 @@ const projectsData = [
     category: 'fcp',
     badge: 'Final Cut Pro',
     badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
-    image: './assets/fcp-project.jpg',
+    image: './assets/wedding-palace.jpg',
     resolution: 'Apple ProRes 422',
     audio: 'Multi-Track Audio Sync',
     price: 11999,
@@ -120,7 +120,7 @@ const projectsData = [
     category: 'edius',
     badge: 'Edius Pro',
     badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    image: './assets/edius-project.jpg',
+    image: './assets/wedding-haldi.jpg',
     resolution: '1080p / 4K Ready',
     audio: '20+ Hit Songs Pre-Cut',
     price: 6999,
@@ -134,7 +134,7 @@ const projectsData = [
     category: 'after-effects',
     badge: 'After Effects',
     badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
-    image: './assets/after-effects-project.jpg',
+    image: './assets/wedding-sangeet.jpg',
     resolution: '1080x1920 Vertical',
     audio: 'Trending Audio Cut',
     price: 3999,
@@ -161,12 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ================= 3. BEFORE / AFTER COLOR GRADE SLIDER =================
+// ================= 3. BEFORE / AFTER COLOR GRADE SLIDER (PIXEL-PERFECT ACCURACY) =================
+function syncSliderImageDimensions() {
+  const wrapper = document.getElementById('sliderWrapper');
+  const rawImg = document.getElementById('rawImg');
+  if (wrapper && rawImg) {
+    rawImg.style.width = wrapper.clientWidth + 'px';
+    rawImg.style.height = wrapper.clientHeight + 'px';
+  }
+}
+
 function initBeforeAfterSlider() {
   const wrapper = document.getElementById('sliderWrapper');
   const beforeContainer = document.getElementById('beforeImageContainer');
   const handle = document.getElementById('sliderHandle');
   if (!wrapper || !beforeContainer || !handle) return;
+
+  // Sync image dimensions immediately and on resize
+  syncSliderImageDimensions();
+  window.addEventListener('resize', syncSliderImageDimensions);
 
   let isDragging = false;
 
@@ -195,7 +208,7 @@ function initBeforeAfterSlider() {
     isDragging = false;
   });
 
-  // Touch Support
+  // Touch Support for Mobile
   wrapper.addEventListener('touchstart', (e) => {
     isDragging = true;
     updateSlider(e.touches[0].clientX);
@@ -209,6 +222,37 @@ function initBeforeAfterSlider() {
   window.addEventListener('touchend', () => {
     isDragging = false;
   });
+}
+
+// Switch between Couple Varmala and Haldi comparison
+function switchComparisonPreset(preset) {
+  const rawImg = document.getElementById('rawImg');
+  const gradedImg = document.getElementById('gradedImg');
+  const btnCouple = document.getElementById('btnPresetCouple');
+  const btnHaldi = document.getElementById('btnPresetHaldi');
+
+  if (preset === 'couple') {
+    rawImg.src = './assets/slider-couple-raw.jpg';
+    gradedImg.src = './assets/slider-couple-graded.jpg';
+
+    btnCouple.classList.add('bg-rose-600', 'text-white', 'border-rose-600', 'shadow-sm');
+    btnCouple.classList.remove('bg-slate-100', 'text-slate-700', 'border-slate-300');
+
+    btnHaldi.classList.remove('bg-rose-600', 'text-white', 'border-rose-600', 'shadow-sm');
+    btnHaldi.classList.add('bg-slate-100', 'text-slate-700', 'border-slate-300');
+  } else if (preset === 'haldi') {
+    rawImg.src = './assets/slider-haldi-raw.jpg';
+    gradedImg.src = './assets/slider-haldi-graded.jpg';
+
+    btnHaldi.classList.add('bg-rose-600', 'text-white', 'border-rose-600', 'shadow-sm');
+    btnHaldi.classList.remove('bg-slate-100', 'text-slate-700', 'border-slate-300');
+
+    btnCouple.classList.remove('bg-rose-600', 'text-white', 'border-rose-600', 'shadow-sm');
+    btnCouple.classList.add('bg-slate-100', 'text-slate-700', 'border-slate-300');
+  }
+
+  // Re-sync after image switch
+  setTimeout(syncSliderImageDimensions, 100);
 }
 
 // ================= 4. LIVE SALES NOTIFICATION TOASTS =================
@@ -240,7 +284,6 @@ function initLiveSalesToasts() {
     index++;
   }
 
-  // First toast after 4s, then every 16s
   setTimeout(showNextToast, 4000);
   setInterval(showNextToast, 16000);
 }
@@ -250,7 +293,7 @@ function hideToast() {
   if (toast) toast.classList.add('-translate-x-full');
 }
 
-// ================= 5. RENDER PROJECT CARDS (BRIGHT DESIGN) =================
+// ================= 5. RENDER PROJECT CARDS (BRIGHT DESIGN WITH REAL PHOTOS) =================
 function renderProjects() {
   const container = document.getElementById('projectsGrid');
   if (!container) return;
