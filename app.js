@@ -154,6 +154,7 @@ let currentModalItemTitle = '';
 document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfterSlider();
   initLiveSalesToasts();
+  initSavingsCalculator();
   renderProjects();
   setupEventListeners();
   if (window.lucide) {
@@ -349,7 +350,7 @@ function renderProjects() {
       </div>
 
       <!-- Card Body Content -->
-      <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+      <div class="p-4 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
         <div>
           <h3 class="font-bold text-slate-900 text-base group-hover:text-rose-600 transition leading-snug">
             ${item.title}
@@ -367,17 +368,17 @@ function renderProjects() {
         <!-- Pricing & Action Buttons -->
         <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
           <div>
-            <div class="text-lg font-black text-rose-600">₹${item.price.toLocaleString('en-IN')}</div>
-            <div class="text-[11px] text-slate-400 line-through">₹${item.originalPrice.toLocaleString('en-IN')}</div>
+            <div class="text-base sm:text-lg font-black text-rose-600">₹${item.price.toLocaleString('en-IN')}</div>
+            <div class="text-[10px] sm:text-[11px] text-slate-400 line-through">₹${item.originalPrice.toLocaleString('en-IN')}</div>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition flex items-center gap-1.5" title="Watch Demo">
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <button onclick="openVideoModal('${item.videoUrl}', '${item.title.replace(/'/g, "\\'")}')" class="px-2.5 sm:px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition flex items-center gap-1 shrink-0" title="Watch Demo">
               <i data-lucide="play" class="w-3.5 h-3.5 fill-slate-800"></i>
               <span class="hidden sm:inline">Demo</span>
             </button>
             
-            <button onclick="addToCart('${item.id}')" class="ruby-btn-gradient text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-sm">
+            <button onclick="addToCart('${item.id}')" class="ruby-btn-gradient text-white font-bold px-3 sm:px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1 sm:gap-1.5 shadow-sm shrink-0">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
               <span>Add to Cart</span>
             </button>
@@ -499,11 +500,13 @@ function removeFromCart(projectId) {
 
 function updateCartUI() {
   const badge = document.getElementById('cartCountBadge');
+  const mobileBadge = document.getElementById('mobileCartCount');
   const container = document.getElementById('cartItemsContainer');
   const totalDisplay = document.getElementById('cartTotalPrice');
 
   const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-  badge.textContent = totalCount;
+  if (badge) badge.textContent = totalCount;
+  if (mobileBadge) mobileBadge.textContent = totalCount;
 
   if (cart.length === 0) {
     container.innerHTML = `
@@ -620,5 +623,63 @@ function setupEventListeners() {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    // Auto-close menu when link is tapped
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+}
+
+// ================= 12. SAVINGS CALCULATOR =================
+function initSavingsCalculator() {
+  const slider = document.getElementById('weddingSlider');
+  const countDisplay = document.getElementById('weddingCountDisplay');
+  const timeSaved = document.getElementById('calcTimeSaved');
+  const extraWeddings = document.getElementById('calcExtraWeddings');
+  const revenueIncrease = document.getElementById('calcRevenueIncrease');
+
+  if (!slider || !countDisplay) return;
+
+  function updateCalculator() {
+    const count = parseInt(slider.value, 10);
+    countDisplay.textContent = `${count} Weddings`;
+    
+    const hours = count * 15;
+    if (timeSaved) timeSaved.textContent = `${hours} Hours`;
+    
+    const extra = Math.max(1, Math.floor(count * 0.35));
+    if (extraWeddings) extraWeddings.textContent = `+${extra} Weddings`;
+    
+    const revenue = extra * 25000;
+    if (revenueIncrease) revenueIncrease.textContent = `₹${revenue.toLocaleString('en-IN')}+`;
+  }
+
+  slider.addEventListener('input', updateCalculator);
+  updateCalculator();
+}
+
+// ================= 13. FAQ ACCORDION =================
+function toggleFaq(id) {
+  const item = document.getElementById(id);
+  const iconNum = id.replace('faq-', '');
+  const icon = document.getElementById(`faq-icon-${iconNum}`);
+  if (!item) return;
+
+  const isHidden = item.classList.contains('hidden');
+  
+  // Close all other items
+  document.querySelectorAll('#faqAccordion > div > div[id^="faq-"]').forEach(el => {
+    el.classList.add('hidden');
+  });
+  document.querySelectorAll('#faqAccordion i[id^="faq-icon-"]').forEach(i => {
+    i.classList.remove('rotate-180');
+  });
+
+  if (isHidden) {
+    item.classList.remove('hidden');
+    if (icon) icon.classList.add('rotate-180');
   }
 }
